@@ -25,6 +25,7 @@
             <v-text-field
               v-model="fechaEntrega"
               label="Fecha prevista de entrega"
+				:rules="[v => v > date || 'Seleccione una fecha posterior al dia actual']"
               persistent-hint
               prepend-icon="mdi-calendar"
               readonly	
@@ -99,7 +100,9 @@
 </template>
 
 <script>
-  export default {
+import {mapState} from 'vuex'
+
+export default {
 data: () => ({
 	date: new Date().toISOString().substr(0, 10),
 	fechaEntrega: '',
@@ -128,11 +131,32 @@ data: () => ({
 	],
 	checkbox: false,
 }),
+computed:{
+    ...mapState(['datosPedidoNuevo'])
+},
+watch:{
+    datosPedidoNuevo(newValue){
+        this.date = newValue.fecha
+        this.fechaEntrega = newValue.fechaEntrega
+        this.nombre= newValue.nombreContacto
+        this.email = newValue.mailContacto
+        this.formaDePagoSeleccionada = newValue.formaPago
+        this.formaDeEntregaSeleccionada = newValue.formaEntrega
+    }
+},
 	methods: {
 		validate () {
 			if(this.$refs.form.validate()){
-				//ACA ME QUEDE, TENDRIA QUE VER SI LA SELECCION DE PRODUCTOS LA HAGO EN OTRA PAGINA O EN ESTA MISMA.
-				this.$router.push('')
+				//guardamos los datos del pedido
+				this.$store.state.datosPedidoNuevo = {
+					fecha: this.date,
+					fechaEntrega:this.fechaEntrega,
+					nombreContacto:this.nombre,
+					mailContacto: this.email,
+					formaPago:this.formaDePagoSeleccionada,
+					formaEntrega:this.formaDeEntregaSeleccionada
+				}
+				this.$router.push('/seleccionProductos')
 			}
 		},
 		reset () {

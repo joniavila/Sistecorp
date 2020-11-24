@@ -29,7 +29,15 @@ export default new Vuex.Store({
       'FERRATO',
       'TRADEIT',
       'STARLIGHT',
-    ]
+    ],
+    datosPedidoNuevo:{
+      fecha:'',
+      fechaEntrega:'',
+      nombreContacto:'',
+      mailContacto: '',
+      formaPago:'',
+      formaEntrega:''
+    }
   },
   mutations: {
   },
