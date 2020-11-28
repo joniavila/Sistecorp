@@ -1,5 +1,5 @@
 <template>
-  <v-card dark>
+  <v-card dark >
     <h3>Datos del pedido</h3> 
     <v-list-item>
       <v-list-item-content style="color:#6aaaff">
@@ -15,13 +15,16 @@
         <v-list-item-title>Metodo de envio: {{ datosPedido.formaEntrega }}</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
-      <v-btn
+      <v-btn depressed
         text
-        color="primary"
+        color="warning"
         @click="modificarPedido"
+        small
+        style="float:"
       >
         Modificar
       </v-btn>
+      <!-- DEBERIA AGREGAR UN BOTON PARA OCULTAR EL BANNER -->
   </v-card>
 </template>
 

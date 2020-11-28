@@ -37,7 +37,8 @@ export default new Vuex.Store({
       mailContacto: '',
       formaPago:'',
       formaEntrega:''
-    }
+    },
+    productosPedido:[]
   },
   mutations: {
   },

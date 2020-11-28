@@ -130,38 +130,44 @@ data: () => ({
 		'Envio por correo'
 	],
 	checkbox: false,
+	pedidoGuardado: null
 }),
+mounted(){
+	this.pedidoGuardado = this.$store.state.datosPedidoNuevo
+	if(this.pedidoGuardado){
+		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
+		this.nombre = this.pedidoGuardado.nombreContacto
+		this.email= this.pedidoGuardado.mailContacto
+		this.formaDePagoSeleccionada = this.pedidoGuardado.formaPago
+		this.formaDeEntregaSeleccionada = this.pedidoGuardado.formaEntrega
+	}
+},
 computed:{
     ...mapState(['datosPedidoNuevo'])
 },
 watch:{
     datosPedidoNuevo(newValue){
-        this.date = newValue.fecha
-        this.fechaEntrega = newValue.fechaEntrega
-        this.nombre= newValue.nombreContacto
-        this.email = newValue.mailContacto
-        this.formaDePagoSeleccionada = newValue.formaPago
-        this.formaDeEntregaSeleccionada = newValue.formaEntrega
+		this.pedidoGuardado = newValue
     }
 },
-	methods: {
-		validate () {
-			if(this.$refs.form.validate()){
-				//guardamos los datos del pedido
-				this.$store.state.datosPedidoNuevo = {
-					fecha: this.date,
-					fechaEntrega:this.fechaEntrega,
-					nombreContacto:this.nombre,
-					mailContacto: this.email,
-					formaPago:this.formaDePagoSeleccionada,
-					formaEntrega:this.formaDeEntregaSeleccionada
-				}
-				this.$router.push('/seleccionProductos')
+methods: {
+	validate () {
+		if(this.$refs.form.validate()){
+			//guardamos los datos del pedido
+			this.$store.state.datosPedidoNuevo = {
+				fecha: this.date,
+				fechaEntrega:this.fechaEntrega,
+				nombreContacto:this.nombre,
+				mailContacto: this.email,
+				formaPago:this.formaDePagoSeleccionada,
+				formaEntrega:this.formaDeEntregaSeleccionada
 			}
-		},
-		reset () {
-			this.$refs.form.reset()
-		},
+			this.$router.push('/seleccionProductos')
+		}
 	},
+	reset () {
+		this.$refs.form.reset()
+	},
+},
 }
 </script>

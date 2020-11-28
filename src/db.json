@@ -3535,5 +3535,26 @@
       "CANTIDAD": "3",
       "id": 3518
     }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "datosPedido": {
+        "fecha": "2020-11-26",
+        "fechaEntrega": "2020-11-27",
+        "nombreContacto": "jo",
+        "mailContacto": "jonasavila27@gmail.com",
+        "formaPago": "Contado Efectivo",
+        "formaEntrega": "Envio a cargo del proveedor"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "producto",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "1"
+        }
+      ]
+    }
   ]
 }
