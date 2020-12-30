@@ -1,173 +1,122 @@
 <template>
-  <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-  >
-<!-- FECHA DEL PEDIDO -->
-<v-col cols="12" sm="6" md="8">
-	<v-text-field
-		v-model="date"
-		label="Fecha Actual"
-		persistent-hint
-		prepend-icon="mdi-calendar"
-	></v-text-field>
-</v-col>
-
-<!-- FECHA DE ENTREGA -->
-<v-col cols="12" sm="6" md="8">
-	<v-menu
-	v-model="menu2"
-	:close-on-content-click="false"
-	transition="scale-transition"
-	offset-y max-width="290px" min-width="290px">
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="fechaEntrega"
-              label="Fecha prevista de entrega"
-				:rules="[v => v > date || 'Seleccione una fecha posterior al dia actual']"
-              persistent-hint
-              prepend-icon="mdi-calendar"
-              readonly	
-              v-on="on"
-            ></v-text-field>
-          </template>
-		<v-date-picker v-model="fechaEntrega" no-title @input="menu2 = false"></v-date-picker>
-	</v-menu>
-</v-col>
-<!-- NOMBRE DE CONTACTO -->
-<v-col cols="12" sm="6" md="8">
-    <v-text-field
-      v-model="nombre"
-      :counter="10"
-      label="Nombre de contacto"
-      required
-    ></v-text-field>
-</v-col>
-<!-- EMAIL DEL COMPRADOR -->
-<v-col cols="12" sm="6" md="8">
-    <v-text-field
-      v-model="email"
-      :rules="emailRules"
-      label="E-mail"
-      required
-    ></v-text-field>
-</v-col>
-<!-- FORMA DE PAGO -->
-<v-col cols="12" sm="6" md="8">
-	<v-select
-	v-model="formaDePagoSeleccionada"
-	:items="formasPago"
-	:rules="[v => !!v || 'Seleccione una forma de pago']"
-	label="Forma de pago"
-	required
-	offset-y
-	></v-select>
-</v-col>
-<!-- FORMA DE ENVIO -->
-<v-col cols="12" sm="6" md="8">
-	<v-select
-	v-model="formaDeEntregaSeleccionada"
-	:items="formasDeEntrega"
-	:rules="[v => !!v || 'Seleccione una forma de entrega']"
-	label="Forma de Envio"
-	required 
-	offset-y
-	></v-select>
-</v-col>
-<div style="width:100%;height:30px">
-</div>	
-
-<!-- BOTONES  -->
-    <v-btn
-      :disabled="!valid"
-      color="success"
-      class="mr-4"
-      @click="validate"
+<v-card>
+<BannerPedido v-if="mostrarBanner"/>
+<v-btn
+    small
+    v-if="mostrarBanner"
+    @click="ocultarBanner"
     >
-      Validar
-    </v-btn>
-
-    <v-btn
-      color="error"
-      class="mr-4"
-      @click="reset"
+    Ocultar Datos Pedido
+</v-btn>
+<v-btn
+    small
+    v-if="!mostrarBanner"
+    @click="ocultarBanner"
     >
-      Reiniciar pedido
-    </v-btn>
-  <div style="width:100%;height:30px"></div>
-  </v-form>
+        Mostrar Datos Pedido
+</v-btn>
+<div>
+<FormPedido style="width:50%;float:left"/>
+<TablaProductosPedido style="width:50%;float:right"/>
+<v-btn
+    dark
+    color="success"
+    x-large
+    @click="confirmarPedido"
+    style="float:right"
+    >
+        Confirmar Pedido
+</v-btn>
+</div>
+<v-alert type="error" v-if="errorPedido" v-model="errorPedido" dismissible>{{mensajeError}}</v-alert>
+<v-alert type="success" v-if="succesPedido">PEDIDO GUARDADO CON EXITO, LO ESTAREMOS CONTACTANDO A LA BREVEDAD</v-alert>
+</v-card>
 </template>
 
 <script>
+import BannerPedido from '@/components/BannerPedido'
+import TablaProductosPedido from '@/components/TablaProductosPedido'
+import FormPedido from '@/components/FormPedido'
+import axios from 'axios'
 import {mapState} from 'vuex'
 
+const BaseURL = 'http://localhost:3000/pedidos'
+
 export default {
-data: () => ({
-	date: new Date().toISOString().substr(0, 10),
-	fechaEntrega: '',
-	menu2: false,
-	valid: true,
-	nombre: '',
-	email: '',
-	emailRules: [
-	v => !!v || 'E-mail es un campo obligatorio',
-	v => /.+@.+\..+/.test(v) || 'E-mail debe contener un dominio'],
-	formaDePagoSeleccionada: null,
-	formasPago: [
-	'Contado Efectivo',
-	'Contado Transferencia',
-	'Tarjeta',
-	'Tarjeta en cuotas',
-	'Cheque a 30 dias',
-	'Cheque a 60 dias',
-	'Cheque a 90 dias'
-	],
-	formaDeEntregaSeleccionada:null,
-	formasDeEntrega:[
-		'Envio a cargo del proveedor',
-		'Retiro por oficina comercial',
-		'Envio por correo'
-	],
-	checkbox: false,
-	pedidoGuardado: null
-}),
+data(){
+    return{
+        datosPedido: this.$store.state.datosPedidoNuevo,
+        productos:[],
+        nroPedido: '',
+        mostrarBanner:true,
+        errorPedido:false,
+        succesPedido:false,
+        mensajeError: null
+    }
+},
 mounted(){
-	this.pedidoGuardado = this.$store.state.datosPedidoNuevo
-	if(this.pedidoGuardado){
-		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
-		this.nombre = this.pedidoGuardado.nombreContacto
-		this.email= this.pedidoGuardado.mailContacto
-		this.formaDePagoSeleccionada = this.pedidoGuardado.formaPago
-		this.formaDeEntregaSeleccionada = this.pedidoGuardado.formaEntrega
-	}
+    axios.get(BaseURL).then(res => { this.nroPedido = res.data.length+1})
+    if(this.errorPedido){
+        this.hide_alert();
+    }
+},
+components:{
+    BannerPedido,
+    TablaProductosPedido,
+    FormPedido
 },
 computed:{
-    ...mapState(['datosPedidoNuevo'])
+    ...mapState(['datosPedidoNuevo','productosPedido'])
 },
 watch:{
     datosPedidoNuevo(newValue){
-		this.pedidoGuardado = newValue
+        this.datosPedido = newValue
+    },
+    productosPedido(newValue){
+        this.productos = newValue
     }
 },
-methods: {
-	validate () {
-		if(this.$refs.form.validate()){
-			//guardamos los datos del pedido
-			this.$store.state.datosPedidoNuevo = {
-				fecha: this.date,
-				fechaEntrega:this.fechaEntrega,
-				nombreContacto:this.nombre,
-				mailContacto: this.email,
-				formaPago:this.formaDePagoSeleccionada,
-				formaEntrega:this.formaDeEntregaSeleccionada
-			}
-			this.$router.push('/seleccionProductos')
-		}
-	},
-	reset () {
-		this.$refs.form.reset()
-	},
-},
+methods:{
+    ocultarBanner(){
+        this.mostrarBanner = !this.mostrarBanner
+    },
+    async confirmarPedido(){
+        if(this.productos.length > 0){
+            var pedidoNuevo = {
+                id: this.nroPedido,
+                datosPedido: this.datosPedido,
+                productos: this.productos,
+                estado: 'PENDIENTE'
+            }
+            await axios.post(BaseURL,pedidoNuevo).then( res => {
+                if(res.status === 201 || res.status === 200 ){
+                    this.succesPedido = true
+                    pedidoNuevo = {}
+                    // routeo
+                    window.setInterval(() => {
+                        this.$router.push('/pedidos')
+                    }, 4000)
+                }else{
+                    this.mensajeError = "ERROR AL CARGAR PEDIDO, POR FAVOR INTENTE NUEVAMENTE"
+                    this.errorPedido = !this.errorPedido
+                    throw res
+                }
+            })
+        }else{
+            this.mensajeError = "DEBE INGRESAR PRODUCTOS PARA HACER EL PEDIDO"
+            this.errorPedido = true
+        }
+    },
+    hide_alert() {
+        window.setInterval(() => {
+            this.succesPedido = false
+            this.errorPedido = false
+        }, 3000)
+    }
+}
 }
 </script>
+
+<style>
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-<v-card>
+<v-card style="height:auto">
   <v-form 
     ref="form"
     v-model="valid"
@@ -8,22 +8,22 @@
   <v-col cols="12" sm="6" md="6">
     <v-text-field
       v-model="nombreProducto"
-      :rules="[ v => !!v || 'Ingrese un nombre de producto']"
       label="Nombre Producto"
       required
+      dense
     ></v-text-field>
   </v-col>
 
-<v-col cols="12" sm="6" md="6">
+  <v-col cols="12" sm="6" md="6">
     <v-text-field
       v-model="cantidad"
       label="Cantidad"
-      :rules="[ v => v>0 || 'Ingrese una cantidad mayor a 0']"
       required
+      dense
     ></v-text-field>
-</v-col>
+  </v-col>
 
-<v-col cols="12" sm="6" md="6">
+  <v-col cols="12" sm="6" md="6">
     <v-select
       v-model="categoria"
       :items="categorias"
@@ -32,13 +32,14 @@
       required
       offset-y
     ></v-select>
-</v-col>
-<v-col cols="12" sm="6" md="6">
+  </v-col>
+  <v-col cols="12" sm="6" md="6">
     <v-checkbox
       v-model="checkbox"
       label="Acepto marca o producto similar?"
     ></v-checkbox>
-</v-col>
+  </v-col>
+  <v-alert type="error" v-if="error">INGRESE UN NOMBRE DE PRODUCTO O CANTIDAD NECESARIA</v-alert>
   </v-form>
     <v-btn
       :disabled="!valid"
@@ -65,10 +66,14 @@ import {mapState} from 'vuex'
       categoriasProductos: '',
       checkbox: false,
       id:0,
-      productosNuevos:[]
+      productosNuevos:[],
+      error: false
     }),
     mounted(){
       this.id = 0
+      if(alert){
+        this.hide_alert();
+      }
     },
     computed:{
     ...mapState(['categorias'])
@@ -80,6 +85,7 @@ import {mapState} from 'vuex'
     },
     methods: {
       async cargarProducto () {
+        if(this.nombreProducto && this.cantidad){
           this.id = this.$store.state.productosPedido.push({
             id:this.id,
             NOMBRE:this.nombreProducto,
@@ -90,10 +96,17 @@ import {mapState} from 'vuex'
           this.categoria= ''
           this.cantidad= ''
           this.checkbox= false
+        }else{
+          this.error = true
+        }    
       },
       reset () {
         this.$refs.form.reset()
       },
-    },
+      hide_alert() {
+        window.setInterval(() => {
+          this.error = false;
+        }, 3000)}
+      }
   }
 </script>

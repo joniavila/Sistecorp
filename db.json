@@ -3555,6 +3555,72 @@
           "CANTIDAD": "1"
         }
       ]
+    },
+    {
+      "id": 2,
+      "datosPedido": {
+        "fecha": "2020-12-29",
+        "usuarioRegistrado": null,
+        "fechaEntrega": "2020-12-30",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "formaPago": "Contado Efectivo",
+        "formaEntrega": "Envio a cargo del proveedor"
+      },
+      "productos": [
+        {
+          "id": 4,
+          "NOMBRE": "PRODUCTO 1",
+          "CATEGORIA": "REDES",
+          "CANTIDAD": "1"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "datosPedido": {
+        "fecha": "2020-12-29",
+        "usuarioRegistrado": null,
+        "fechaEntrega": "2020-12-31",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Envio por correo"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "PRODUCTO 1",
+          "CATEGORIA": "ENERGIA",
+          "CANTIDAD": "1"
+        },
+        {
+          "id": 1,
+          "NOMBRE": "PRODUCTO 2",
+          "CATEGORIA": "IMAGEN Y SONIDO",
+          "CANTIDAD": "3"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "datosPedido": {
+        "fecha": "2020-12-29",
+        "usuarioRegistrado": null,
+        "fechaEntrega": "2020-12-30",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "formaPago": "Tarjeta en cuotas",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "PRODUCTO NUEVO",
+          "CATEGORIA": "REDES",
+          "CANTIDAD": "123"
+        }
+      ]
     }
   ]
 }

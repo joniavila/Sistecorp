@@ -4,6 +4,11 @@
     <v-toolbar flat>
         <v-toolbar-title>PRODUCTOS</v-toolbar-title>
     </v-toolbar>
+    <template v-slot:[`item.actions`]="{ item }">
+      <v-icon small @click="deleteItem(item)" >
+        mdi-delete
+      </v-icon>
+    </template>
     </v-data-table>
 </template>
 
@@ -25,14 +30,14 @@ data(){
                     value: 'NOMBRE'
                 },
                 {
-                    text:'CATEGORIA',
+                    text:'FORMA PAGO',
                     value:'CATEGORIA'
                 },
                 {
                     text:'CANTIDAD',
                     value:'CANTIDAD'
                 },
-                { text: 'Actions', value: 'actions', sortable: false },
+                { text: '', value: 'actions', sortable: false },
             ],
     }
 },
@@ -42,6 +47,15 @@ computed:{
 watch:{
     productosPedido(newValue){
         this.productosAgregados = newValue
+    }
+},
+mounted(){
+    this.productosAgregados = []
+},
+methods:{
+    deleteItem(item){
+        var indexItem = this.productosAgregados.indexOf(item)
+        this.productosAgregados.splice(indexItem,1)
     }
 }
 }

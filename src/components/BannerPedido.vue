@@ -1,5 +1,5 @@
 <template>
-  <v-card dark >
+  <v-card dark>
     <h3>Datos del pedido</h3> 
     <v-list-item>
       <v-list-item-content style="color:#6aaaff">
@@ -20,7 +20,6 @@
         color="warning"
         @click="modificarPedido"
         small
-        style="float:"
       >
         Modificar
       </v-btn>
@@ -33,7 +32,7 @@ import {mapState} from 'vuex'
 export default {
 data(){
     return{
-      datosPedido: this.$store.state.datosPedidoNuevo
+      datosPedido: this.$store.state.datosPedidoNuevo,
     }
 },
 computed:{
@@ -42,11 +41,11 @@ computed:{
 watch:{
     datosPedidoNuevo(newValue){
         this.datosPedido = newValue
-    }
+    },
 },
 methods:{
     modificarPedido(){
-        this.$router.push('/pedido')
+        this.$router.push('/cotizacion')
     }
 }
 }

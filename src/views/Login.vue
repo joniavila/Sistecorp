@@ -73,7 +73,8 @@ export default {
 					this.$store.state.ingreso = true
 					var userData = {
 						usuario : this.usuario,
-						contraseña: this.contraseña
+						contraseña: this.contraseña,
+						name: e.name
 					}
 					if(e.administrador === true){
 						this.$store.state.administrador = true
@@ -85,7 +86,10 @@ export default {
 						this.$store.state.usuarioRegistrado = true
 					}
 					this.alert = true
-					localStorage.setItem('user', JSON.stringify(userData))
+					localStorage.setItem('user', JSON.stringify(userData.usuario))
+					localStorage.setItem('password',JSON.stringify(userData.contraseña))
+					localStorage.setItem('name',JSON.stringify(userData.name))
+					this.$store.state.user = userData
 					this.$router.push('/')
 				}
 			});

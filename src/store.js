@@ -38,7 +38,8 @@ export default new Vuex.Store({
       formaPago:'',
       formaEntrega:''
     },
-    productosPedido:[]
+    productosPedido:[],
+    banner: true
   },
   mutations: {
   },

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app dark>
-      <v-toolbar-title>SISTECORP</v-toolbar-title>
+      <v-toolbar-title v-if="nombreUsuario">Hola {{nombreUsuario}}!</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
         v-show="!ingreso"
@@ -158,6 +158,7 @@ export default {
   name: 'App',
   data() {
     return {
+      nombreUsuario: null,
       logoSesion: mdiAccountArrowLeft,
       usuario: false,
       ingresoApp:false,
@@ -180,7 +181,7 @@ export default {
       linksUsuario:[
         {
           label:'Crear pedido Web',
-          url:'/pedido'
+          url:'/datosPedido'
         },
         {
           label:'Solicita cotizacion',
@@ -246,7 +247,7 @@ export default {
     }
   },
   computed:{
-    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor'])
+    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor','user'])
   },
   watch:{
     usuarioRegistrado(newValue){
@@ -260,6 +261,9 @@ export default {
     },
     vendedor(newValue){
       this.vendedorApp = newValue
+    },
+    user(newValue){
+      this.nombreUsuario = newValue.name
     }
   }
 }
