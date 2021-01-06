@@ -84,7 +84,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO BROTHER TN750",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 109,
@@ -92,7 +92,7 @@
     },
     {
       "NOMBRE": "TONER SAMSUNG CLT-K406S NEGRO ORIGINAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "104",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 132,
@@ -108,7 +108,7 @@
     },
     {
       "NOMBRE": "TONER HP 436A ALTERNATIVO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 194,
@@ -116,7 +116,7 @@
     },
     {
       "NOMBRE": "TONER HP 435A ALTERNATIVO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 48,
@@ -124,7 +124,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO SAMSUNG MLT-D101S",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 155,
@@ -132,7 +132,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 278A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 203,
@@ -140,7 +140,7 @@
     },
     {
       "NOMBRE": "TONER HP 285A ORIGINAL P1102W/M1132 I",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "106",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 146,
@@ -148,7 +148,7 @@
     },
     {
       "NOMBRE": "TONER SAMSUNG D104S ALTERNATIVO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 143,
@@ -156,7 +156,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 226A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 191,
@@ -164,7 +164,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO BROTHER TN1060",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 144,
@@ -236,7 +236,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO  HP 662XL NEGRO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "159",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 249,
@@ -252,7 +252,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO  HP 662XL COLOR",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "182",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 108,
@@ -260,7 +260,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T195/196 4 AMARILLO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 108,
@@ -276,7 +276,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON T664320-AL MAGENTA P/L200/210/L355",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "110",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 260,
@@ -284,7 +284,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON T664420-AL AMARILLOP/L200/210/L355",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "111",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 233,
@@ -292,7 +292,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON T664220-AL CYAN P/L200/210/L355",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "112",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 126,
@@ -300,7 +300,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON MAGENTA GENERICA 250 ml  COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 66,
@@ -308,7 +308,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON CYAN  GENERICA 250 ml COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "150",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 70,
@@ -316,7 +316,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON AMARILLO GENERICA 250 ml COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 137,
@@ -324,7 +324,7 @@
     },
     {
       "NOMBRE": "TINTA EPSON NEGRO GENERICA  250 ml COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 213,
@@ -380,7 +380,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 283A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 25,
@@ -388,7 +388,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP Q2612A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 193,
@@ -396,7 +396,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 122XL NEGRO 12ML (CH563HL)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 80,
@@ -404,7 +404,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO 122XL  COLOR 13ML (CH564HL)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 119,
@@ -412,7 +412,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO 21XL (C9351AL) NEGRO 19ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 105,
@@ -420,7 +420,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 22XL (C9352AL) COLOR 14ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 291,
@@ -428,7 +428,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 60XL NEGRO 13ML (CC640WL)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 197,
@@ -436,7 +436,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 60XL (CC642WL) COLOR 125ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 74,
@@ -444,7 +444,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T133 1 XL NEGRO 12ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 82,
@@ -452,7 +452,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTENATIVO EPSON T133 3 XL MAGENTA 13ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 24,
@@ -460,7 +460,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ORIGINAL HP  93 TRICOLOR",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "513",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 185,
@@ -468,7 +468,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 74XL (CB336WL) NEGRO 20ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 169,
@@ -492,7 +492,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 75XL(CB338WL) COLOR 14 ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "154",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 63,
@@ -500,7 +500,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 98 (C9364WL) NEGRO 13ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "170",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 157,
@@ -524,7 +524,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02 AMARILLO  115ML C8773W",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 244,
@@ -532,7 +532,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02 NEGRO  C8721W",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 111,
@@ -548,7 +548,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02 CYAN (H-C8771W) COLOR 85 ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 270,
@@ -588,7 +588,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO SANSUNG MLT-D203L",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 203,
@@ -596,7 +596,7 @@
     },
     {
       "NOMBRE": "TONER HP 255A ALTERNATIVO 6000 COPIAS",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 202,
@@ -660,7 +660,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO UNIVERSAL HP 280A/505A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 124,
@@ -692,7 +692,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T195/T196/T197 XL NEGRO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "37",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 144,
@@ -700,7 +700,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02 CYAN LIGHT (H-C8774W) 105ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 29,
@@ -716,7 +716,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO BROTHER TN580/650 UNIVERSAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 47,
@@ -732,7 +732,7 @@
     },
     {
       "NOMBRE": "CARTUCHO HP 662XL NEGRO CZ105AL ORIGINAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "265",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 265,
@@ -748,7 +748,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T195/T196 3 MAGENTA",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "26",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 130,
@@ -756,7 +756,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T195/196 2 CYAN",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 152,
@@ -772,7 +772,7 @@
     },
     {
       "NOMBRE": "TONER HP CE255X ALTERNATIVO - DOBLE CARGA",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 140,
@@ -780,7 +780,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP M364A",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 9,
@@ -844,7 +844,7 @@
     },
     {
       "NOMBRE": "TINTA HP GENERICA NEGRO 250 CM3 COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 258,
@@ -852,7 +852,7 @@
     },
     {
       "NOMBRE": "TINTA HP GENERICA MAGENTA 250 CM3 COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 55,
@@ -860,7 +860,7 @@
     },
     {
       "NOMBRE": "TINTA HP GENERICA CIAN 250 CM3 COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 260,
@@ -868,7 +868,7 @@
     },
     {
       "NOMBRE": "TINTA HP GENERICA AMARILLO 250 CM3 COOLPRINT",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 148,
@@ -876,7 +876,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO SAMSUNG MLT-D111S (CHIP VIEJO)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 197,
@@ -956,7 +956,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T731 NEGRO 12ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "103",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 53,
@@ -1036,7 +1036,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02-3 MAGENTA 10.5ML (C8772W)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "54",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 137,
@@ -1084,7 +1084,7 @@
     },
     {
       "NOMBRE": "CARTUCHO EPSON T135120-AL NEGRO T25/ TX125/TX135",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 2,
@@ -1188,7 +1188,7 @@
     },
     {
       "NOMBRE": "BROTHER DK1204 P/QL 1.7CM X 5.4CM 400 ETIQ.",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "200",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 257,
@@ -1212,7 +1212,7 @@
     },
     {
       "NOMBRE": "CARTUCHO HP 662XL TRICOLOR ORIGINAL (CZ106AL)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 43,
@@ -1220,7 +1220,7 @@
     },
     {
       "NOMBRE": "BROTHER DK1209 P/QL 2.9CM X 6.2CM 800 ETIQ",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "404",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 125,
@@ -1292,7 +1292,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA ORIGINAL 670 NEGRA HP",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "150",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 281,
@@ -1300,7 +1300,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA ORIGINAL 670 MAGENTA HP",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "149",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 180,
@@ -1308,7 +1308,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA ORIGINAL 670 CIAN HP",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "150",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 234,
@@ -1316,7 +1316,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA ORIGINAL 670 AMARILLO HP",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 244,
@@ -1356,7 +1356,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA HP 954 NEGRO ORIGINAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 288,
@@ -1364,7 +1364,7 @@
     },
     {
       "NOMBRE": "CARTUCHO DE TINTA HP 954 CYAN ORIGINAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "246",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 76,
@@ -1444,7 +1444,7 @@
     },
     {
       "NOMBRE": "TONER ORIGINAL BROTHER TN1060 P/HL-1200/1212W/ DCP1617 (I)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "388",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 225,
@@ -1580,7 +1580,7 @@
     },
     {
       "NOMBRE": "TONER BROTHER ALTERNATIVO TN660 / 2370",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 227,
@@ -1644,7 +1644,7 @@
     },
     {
       "NOMBRE": "CINTA BROTHER TZE231 P/ROTULADORA 12MM NEGRO-BLANCO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "156",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 212,
@@ -1748,7 +1748,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 02 MAGENTA LIGHT(H-C8775W) 105ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "60",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 275,
@@ -1828,7 +1828,7 @@
     },
     {
       "NOMBRE": "CARTUCHO EPSON T733 MAGENTA 12ML",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 267,
@@ -1876,7 +1876,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO BROTHER TN410/420/450 UNIVERSAL BROTHER",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 172,
@@ -1904,7 +1904,7 @@
       "PRECIO": "808",
       "PROVEEDOR": "MASNET",
       "CANTIDAD": 261,
-      "id": 1568
+      "id": 1569
     },
     {
       "id": 1568,
@@ -1923,22 +1923,22 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 664 XL NEGRO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "168",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 107,
-      "id": 1578
+      "id": 1575
     },
     {
       "id": 1578,
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 664 XL NEGRO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "168",
       "PROVEEDOR": "TRADEIT"
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 664 XL COLOR",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "179",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 241,
@@ -1970,7 +1970,7 @@
     },
     {
       "NOMBRE": "BROTHER DK1207 ETIQUETAS P/CD Y DVD 58MM P/QL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "397",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 140,
@@ -1978,7 +1978,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON 297-1 XL NEGRO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 250,
@@ -1986,7 +1986,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON 296-4 XL AMARILLO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 262,
@@ -1994,7 +1994,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON 296-2 XL CYAN",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 72,
@@ -2002,7 +2002,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON 296-3 XL  MAGENTA",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 218,
@@ -2042,7 +2042,7 @@
     },
     {
       "NOMBRE": "CINTA BROTHER MK231 PT65/70/80/90 12MM NEGRO/BLANCO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "224",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 185,
@@ -2058,7 +2058,7 @@
     },
     {
       "NOMBRE": "BROTHER DK2210 P/QL 2.9CM X 30.48 METROS",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "370",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 71,
@@ -2094,7 +2094,7 @@
       "PRECIO": "221",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 160,
-      "id": 1717
+      "id": 1715
     },
     {
       "id": 1717,
@@ -2113,7 +2113,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO  HP 285A/435A/436A UNIVERSAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 275,
@@ -2209,7 +2209,7 @@
     },
     {
       "NOMBRE": "CINTA BROTHER TZES231 12MM NEGRO - BLANCO ADHESIVO EXTRA",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 82,
@@ -2265,7 +2265,7 @@
     },
     {
       "NOMBRE": "RIEL DIN CHAPA x 1 MT LIVIANO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "413",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 177,
@@ -2441,7 +2441,7 @@
     },
     {
       "NOMBRE": "TONER BROTHER TN450 2600 PAG",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 112,
@@ -2473,7 +2473,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 505X/280X UNIVERSAL",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 207,
@@ -2481,7 +2481,7 @@
     },
     {
       "NOMBRE": "ROLLO ALTERNATIVO BROTHER DK2205",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "68",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 279,
@@ -2505,7 +2505,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 230A (SIN CHIP)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 107,
@@ -2529,7 +2529,7 @@
     },
     {
       "NOMBRE": "TINTA HP GENERICA AMARILLO 250 CM3 HOFMAN",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "632",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 235,
@@ -2689,7 +2689,7 @@
     },
     {
       "NOMBRE": "CINTA ROTULADORA BROTHER TZE-131EU 12MM (BLACK ON WHITE)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 279,
@@ -2825,7 +2825,7 @@
     },
     {
       "NOMBRE": "CINTA BROTHER TZEFX231 12MM 7.98 NEGRO SOBRE BLANCO",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "235",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 90,
@@ -2849,7 +2849,7 @@
     },
     {
       "NOMBRE": "IMPRESORA ETIQUETAS BROTHER QL-800 USB CINTAS DK",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "142",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 285,
@@ -2897,7 +2897,7 @@
     },
     {
       "NOMBRE": "RIEL DIN 8 CM",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "616",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 104,
@@ -2913,7 +2913,7 @@
     },
     {
       "NOMBRE": "TOMA EXTERIOR MONONORMA 20A BLANCA",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "36",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 252,
@@ -2961,7 +2961,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO 17A NEGRO CF217A  (CON CHIP)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 210,
@@ -2977,7 +2977,7 @@
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO HP 93XL COLOR 19ML (C9361WL)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 194,
@@ -3074,7 +3074,7 @@
     {
       "NOMBRE": "COOLER SOCKET CM MASTER AIR MA410P RGB",
       "CATEGORIA": "MICRO",
-      "PRECIO": "2.109",
+      "PRECIO": "20",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 127,
       "id": 3076
@@ -3225,7 +3225,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO HP 230A (CON CHIP)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 209,
@@ -3329,7 +3329,7 @@
     },
     {
       "NOMBRE": "CINTA ROTULADORA BROTHER TZE-FA3 (BLUE ON WHITE)",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "145",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 60,
@@ -3497,7 +3497,7 @@
     },
     {
       "NOMBRE": "IMPRESORA LASER MONOCROMATICA  WIFI PANTUM P2500W",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "111",
       "PROVEEDOR": "AIR",
       "CANTIDAD": 177,
@@ -3505,7 +3505,7 @@
     },
     {
       "NOMBRE": "TONER ALTERNATIVO PANTUM  PB211EV PARA P2500W M6550NW",
-      "CATEGORIA": "IMRESION",
+      "CATEGORIA": "IMPRESION",
       "PRECIO": "204",
       "PROVEEDOR": "TRADEIT",
       "CANTIDAD": 221,
@@ -3515,16 +3515,16 @@
       "id": 3516,
       "NOMBRE": "JOYSTIC LOGITECH G230",
       "CATEGORIA": "MICRO",
-      "PRECIO": "",
+      "PRECIO": "230",
       "PROVEEDOR": "AIR",
-      "CANTIDAD": ""
+      "CANTIDAD": "2"
     },
     {
       "NOMBRE": "AIRE ACONDICIONADO",
       "CATEGORIA": "ENERGIA",
       "PRECIO": "1200",
       "PROVEEDOR": "GRUPO NUCLEO",
-      "CANTIDAD": "",
+      "CANTIDAD": "3",
       "id": 3517
     },
     {
@@ -3534,93 +3534,76 @@
       "PROVEEDOR": "AIR",
       "CANTIDAD": "3",
       "id": 3518
+    },
+    {
+      "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
+      "CATEGORIA": "OTROS",
+      "PRECIO": "1",
+      "PROVEEDOR": "AIR",
+      "CANTIDAD": "100",
+      "id": 3519
     }
   ],
   "pedidos": [
     {
       "id": 1,
       "datosPedido": {
-        "fecha": "2020-11-26",
-        "fechaEntrega": "2020-11-27",
-        "nombreContacto": "jo",
-        "mailContacto": "jonasavila27@gmail.com",
-        "formaPago": "Contado Efectivo",
-        "formaEntrega": "Envio a cargo del proveedor"
-      },
-      "productos": [
-        {
-          "id": 0,
-          "NOMBRE": "producto",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "1"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "datosPedido": {
-        "fecha": "2020-12-29",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2020-12-30",
-        "nombreContacto": "Jonas Avila",
-        "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Contado Efectivo",
-        "formaEntrega": "Envio a cargo del proveedor"
-      },
-      "productos": [
-        {
-          "id": 4,
-          "NOMBRE": "PRODUCTO 1",
-          "CATEGORIA": "REDES",
-          "CANTIDAD": "1"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "datosPedido": {
-        "fecha": "2020-12-29",
+        "fecha": "2020-12-30",
         "usuarioRegistrado": null,
         "fechaEntrega": "2020-12-31",
         "nombreContacto": "Jonas Avila",
         "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Tarjeta",
-        "formaEntrega": "Envio por correo"
+        "formaPago": "Contado Efectivo",
+        "formaEntrega": "Envio a cargo del proveedor"
       },
       "productos": [
         {
           "id": 0,
           "NOMBRE": "PRODUCTO 1",
-          "CATEGORIA": "ENERGIA",
+          "CATEGORIA": "MICRO",
           "CANTIDAD": "1"
         },
         {
           "id": 1,
           "NOMBRE": "PRODUCTO 2",
-          "CATEGORIA": "IMAGEN Y SONIDO",
-          "CANTIDAD": "3"
+          "CATEGORIA": "REDES",
+          "CANTIDAD": "2"
+        },
+        {
+          "id": 2,
+          "NOMBRE": "PRODUCTO 3",
+          "CATEGORIA": "TELEFONIA",
+          "CANTIDAD": "4"
         }
-      ]
+      ],
+      "estado": "PENDIENTE"
     },
     {
-      "id": 4,
+      "id": 2,
       "datosPedido": {
-        "fecha": "2020-12-29",
+        "fecha": "2021-01-05",
         "usuarioRegistrado": null,
-        "fechaEntrega": "2020-12-30",
-        "nombreContacto": "Jonas Avila",
-        "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Tarjeta en cuotas",
+        "fechaEntrega": "2021-01-06",
+        "nombreContacto": "Usuario Final",
+        "mailContacto": "user@gmail.com",
+        "formaPago": "Contado Efectivo",
         "formaEntrega": "Retiro por oficina comercial"
       },
       "productos": [
         {
           "id": 0,
-          "NOMBRE": "PRODUCTO NUEVO",
+          "NOMBRE": "PRODUCTO X",
           "CATEGORIA": "REDES",
-          "CANTIDAD": "123"
+          "CANTIDAD": "1"
+        },
+        {
+          "id": 1,
+          "NOMBRE": "PRODUCTO Y ",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "2"
         }
-      ]
+      ],
+      "estado": "PENDIENTE"
     }
   ]
 }

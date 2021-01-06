@@ -1,6 +1,5 @@
 <template>
   <v-card dark>
-    <h3>Datos del pedido</h3> 
     <v-list-item>
       <v-list-item-content style="color:#6aaaff">
         <v-list-item-title>Fecha de Pedido: {{ datosPedido.fecha }}</v-list-item-title>

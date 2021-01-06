@@ -41,15 +41,20 @@ const router = new Router({
       component: ()=> import('./views/DatosPedido.vue')
     },
     {
-      path: '/pedido',
-      name: 'pedido',
-      component: ()=> import('./views/Pedido.vue')
+      path: '/cargaProductos',
+      name: 'cargaProductosCotizacion',
+      component: ()=> import('./views/Cotizacion.vue')
     },
     {
-      path: '/pedidoS',
+      path: '/pedidos',
       name: 'Historial',
       component: ()=> import('./views/HistorialPedidos.vue')
-    }
+    },
+    {
+      path: '/pedidoWeb',
+      name: 'pedidoWeb',
+      component: ()=> import('./views/PedidoWeb.vue')
+    },
   ]
 })  
   router.beforeEach((to, from, next) => {

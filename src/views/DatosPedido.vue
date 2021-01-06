@@ -172,7 +172,7 @@ methods: {
 				formaPago:this.formaDePagoSeleccionada,
 				formaEntrega:this.formaDeEntregaSeleccionada
 			}
-			this.$router.push('/Pedido')
+			this.$router.push('/cargaProductos')
 		}
 	},
 	reset () {

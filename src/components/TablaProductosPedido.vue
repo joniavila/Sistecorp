@@ -1,6 +1,7 @@
 <template>
     <v-data-table :headers="headers" :items="productosAgregados" class="elevation-1"
-    :footer-props="{'items-per-page-text':'Productos por pagina'}">
+    :footer-props="{'items-per-page-text':'Productos por pagina'}"
+    no-data-text = 'NO HA CARGADO NINGUN PRODUCTO'>
     <v-toolbar flat>
         <v-toolbar-title>PRODUCTOS</v-toolbar-title>
     </v-toolbar>

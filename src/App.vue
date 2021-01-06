@@ -181,7 +181,7 @@ export default {
       linksUsuario:[
         {
           label:'Crear pedido Web',
-          url:'/datosPedido'
+          url:'/pedidoWeb'
         },
         {
           label:'Solicita cotizacion',
