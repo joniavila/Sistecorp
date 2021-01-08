@@ -36,7 +36,7 @@ const router = new Router({
     },
     //COMERCIAL
     {
-      path: '/cotizacion',
+      path: '/infoPedido&cotizacion',
       name: 'DatosPedido',
       component: ()=> import('./views/DatosPedido.vue')
     },
@@ -54,6 +54,11 @@ const router = new Router({
       path: '/pedidoWeb',
       name: 'pedidoWeb',
       component: ()=> import('./views/PedidoWeb.vue')
+    },
+    {
+      path: '/confirmacionPedido',
+      name: 'confirmacionPedido',
+      component: ()=> import('./views/Pedido.vue')
     },
   ]
 })  

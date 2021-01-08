@@ -51,7 +51,7 @@ data(){
         mostrarBanner:true,
         errorPedido:false,
         succesPedido:false,
-        mensajeError: null
+        mensajeError: null,
     }
 },
 mounted(){
@@ -74,7 +74,7 @@ watch:{
     },
     productosPedido(newValue){
         this.productos = newValue
-    }
+    },
 },
 methods:{
     ocultarBanner(){
@@ -86,7 +86,8 @@ methods:{
                 id: this.nroPedido,
                 datosPedido: this.datosPedido,
                 productos: this.productos,
-                estado: 'PENDIENTE'
+                estado: 'PENDIENTE',
+                solicitud:'COTIZACION'
             }
             await axios.post(BaseURL,pedidoNuevo).then( res => {
                 if(res.status === 201 || res.status === 200 ){

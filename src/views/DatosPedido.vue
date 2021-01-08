@@ -35,6 +35,7 @@
 		<v-date-picker v-model="fechaEntrega" no-title @input="menu2 = false"></v-date-picker>
 	</v-menu>
 </v-col>
+<div v-if="!esPedidoWeb">
 <v-col cols="12" sm="6" md="8">
 	<v-btn
 		color="primary"
@@ -60,6 +61,7 @@
       required
     ></v-text-field>
 </v-col>
+</div>
 <!-- FORMA DE PAGO -->
 <v-col cols="12" sm="6" md="8">
 	<v-select
@@ -113,6 +115,7 @@ import {mapState} from 'vuex'
 
 export default {
 data: () => ({
+	esPedidoWeb: false,
 	date: new Date().toISOString().substr(0, 10),
 	fechaEntrega: '',
 	menu2: false,
@@ -139,9 +142,10 @@ data: () => ({
 		'Envio por correo'
 	],
 	checkbox: false,
-	pedidoGuardado: null
+	pedidoGuardado: null,
 }),
 mounted(){
+	this.esPedidoWeb = this.$store.state.esPedido
 	this.pedidoGuardado = this.$store.state.datosPedidoNuevo
 	if(this.pedidoGuardado){
 		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
@@ -152,27 +156,45 @@ mounted(){
 	}
 },
 computed:{
-    ...mapState(['datosPedidoNuevo'])
+    ...mapState(['datosPedidoNuevo','esPedido'])
 },
 watch:{
     datosPedidoNuevo(newValue){
 		this.pedidoGuardado = newValue
-    }
+	},
+	esPedido(newValue){
+		if(newValue){
+			this.esPedidoWeb = newValue
+		}
+	}
 },
 methods: {
 	validate () {
 		if(this.$refs.form.validate()){
 			//guardamos los datos del pedido
-			this.$store.state.datosPedidoNuevo = {
+			if(this.esPedidoWeb){
+				this.$store.state.datosPedidoNuevo = {
 				fecha: this.date,
 				usuarioRegistrado: localStorage.getItem('User'),
 				fechaEntrega:this.fechaEntrega,
-				nombreContacto:this.nombre,
+				nombreContacto: localStorage.getItem('name').replace('"','').replace('"',''),
+				mailContacto: localStorage.getItem('user').replace('"','').replace('"',''),
+				formaPago:this.formaDePagoSeleccionada,
+				formaEntrega:this.formaDeEntregaSeleccionada
+				}
+				this.$router.push('/confirmacionPedido')
+			}else{
+				this.$store.state.datosPedidoNuevo = {
+				fecha: this.date,
+				usuarioRegistrado: localStorage.getItem('User'),
+				fechaEntrega:this.fechaEntrega,
+				nombreContacto: this.nombre,
 				mailContacto: this.email,
 				formaPago:this.formaDePagoSeleccionada,
 				formaEntrega:this.formaDeEntregaSeleccionada
+				}
+				this.$router.push('/cargaProductos')
 			}
-			this.$router.push('/cargaProductos')
 		}
 	},
 	reset () {

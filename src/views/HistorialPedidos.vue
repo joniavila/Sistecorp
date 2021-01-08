@@ -28,8 +28,12 @@ export default {
         pedidos:[],
         headers:[
             {
-                text:'NRO PEDIDO',
+                text:'NRO SOLCITUD',
                 value:'id'
+            },
+            {
+                text:'TIPO SOLCITUD',
+                value:'solicitud'
             },
             {
                 text:'FECHA PEDIDO',

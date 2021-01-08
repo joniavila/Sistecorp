@@ -185,7 +185,7 @@ export default {
         },
         {
           label:'Solicita cotizacion',
-          url:'/cotizacion'
+          url:'/infoPedido&cotizacion'
         },
         {
           label:'Historial de pedidos',

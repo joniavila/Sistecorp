@@ -31,7 +31,7 @@ data(){
                     value: 'NOMBRE'
                 },
                 {
-                    text:'FORMA PAGO',
+                    text:'CATEGORIA',
                     value:'CATEGORIA'
                 },
                 {
@@ -40,18 +40,27 @@ data(){
                 },
                 { text: '', value: 'actions', sortable: false },
             ],
+            esPedidoWeb:false
     }
 },
 computed:{
-    ...mapState(['productosPedido'])
+    ...mapState(['productosPedido','esPedido'])
 },
 watch:{
     productosPedido(newValue){
         this.productosAgregados = newValue
+    },
+    esPedido(newValue){
+        this.esPedidoWeb = newValue
     }
 },
 mounted(){
-    this.productosAgregados = []
+    this.esPedidoWeb = this.$store.state.esPedido
+    if(this.esPedidoWeb){
+        this.productosAgregados = this.$store.state.productosPedido
+    }else{
+        this.productosAgregados = []
+    }
 },
 methods:{
     deleteItem(item){
