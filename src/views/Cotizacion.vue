@@ -17,7 +17,7 @@
 </v-btn>
 <div>
 <FormPedido style="width:50%;float:left"/>
-<TablaProductosPedido style="width:50%;float:right"/>
+<TablaProductosCotizacion style="width:50%;float:right"/>
 <v-btn
     dark
     color="success"
@@ -35,7 +35,7 @@
 
 <script>
 import BannerPedido from '@/components/BannerPedido'
-import TablaProductosPedido from '@/components/TablaProductosPedido'
+import TablaProductosCotizacion from '@/components/TablaProductosCotizacion'
 import FormPedido from '@/components/FormPedido'
 import axios from 'axios'
 import {mapState} from 'vuex'
@@ -62,7 +62,7 @@ mounted(){
 },
 components:{
     BannerPedido,
-    TablaProductosPedido,
+    TablaProductosCotizacion,
     FormPedido
 },
 computed:{

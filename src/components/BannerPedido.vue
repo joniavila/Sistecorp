@@ -5,7 +5,7 @@
         <v-list-item-title>Fecha de Pedido: {{ datosPedido.fecha }}</v-list-item-title>
         <v-list-item-title>Fecha de entrega: {{ datosPedido.fechaEntrega }}</v-list-item-title>
       </v-list-item-content>
-      <div v-if="pedidoWeb">  
+      <div v-if="!pedidoWeb">  
       <v-list-item-content style="color:#6aaaff">
         <v-list-item-title>Nombre del contacto: {{ datosPedido.nombreContacto }}</v-list-item-title>
         <v-list-item-title>Mail del contacto: {{ datosPedido.mailContacto }}</v-list-item-title>
