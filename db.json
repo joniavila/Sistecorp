@@ -26,11 +26,11 @@
     },
     {
       "id": 4,
-      "name": "joju",
+      "name": "vendedor Jonas",
       "mail": "asd@gmail.com",
       "contraseña": "joju123",
       "administrador": false,
-      "vendedor": false
+      "vendedor": true
     }
   ],
   "productos": [
@@ -3658,6 +3658,29 @@
           "NOMBRE": "PARLANTE + MP3 2.1  10W RMS  USB  MADERA  OV-114 OVER TECH",
           "CATEGORIA": "IMAGEN Y SONIDO",
           "CANTIDAD": "2"
+        }
+      ],
+      "estado": "ACEPTADO",
+      "solicitud": "PEDIDO"
+    },
+    {
+      "id": 5,
+      "datosPedido": {
+        "fecha": "2021-01-12",
+        "usuarioRegistrado": null,
+        "fechaEntrega": "2021-01-13",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "formaPago": "Contado Efectivo",
+        "formaEntrega": "Envio a cargo del proveedor"
+      },
+      "productos": [
+        {
+          "id": 48,
+          "NOMBRE": "PLACA PCI  SERIAL  2P CHIP WCH352L NS-PLSE2 NISUTA",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "1",
+          "PRECIO": "100"
         }
       ],
       "estado": "ACEPTADO",

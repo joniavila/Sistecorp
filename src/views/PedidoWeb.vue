@@ -115,9 +115,10 @@
       </v-row>
       <div class="text-center" v-if="listaProducto.length >0">
           <v-pagination v-model="page" :length="Math.ceil(listaProducto.length/perPage)"></v-pagination>
-          <v-btn color="success" style="float:right" x-large @click="finalizarPedido()">FINALIZAR PEDIDO</v-btn>
+          <v-btn color="success" style="float:right" x-large @click="finalizarPedido()">FINALIZAR PEDIDO ({{productosSeleccionados.length}})</v-btn>
       </div>
     </div>
+          <v-alert type="warning" style="text-align:center" v-if="productosFaltantes" v-model="productosFaltantes" dismissible>DEBE AGREGAR UN PRODUCTO A SU PEDIDO!</v-alert>
     <!-- DIALOG PARA AGREGAR PRODUCTOS -->
     <v-row justify="center">
     <v-dialog
@@ -182,7 +183,8 @@ data(){
         productoAagregar:'',
         nroPedido: '',
         id: 0,
-        cantidadSuperada: false
+        cantidadSuperada: false,
+        productosFaltantes: false
     }
 },
 mounted(){
@@ -256,12 +258,14 @@ methods:{
       //AGREGAMOS EL PRODUCTO A UNA LISTA DE LA VISTA Y AL STORE
       if(this.cantidad < this.productoAagregar.CANTIDAD){
       this.agregar = false
+      this.productosFaltantes = false
       this.productosSeleccionados.push(this.productoAagregar)
       this.$store.state.productosPedido.push({
         id:this.productoAagregar.id,
         NOMBRE:this.productoAagregar.NOMBRE,
         CATEGORIA:this.productoAagregar.CATEGORIA,
         CANTIDAD:this.cantidad,
+        PRECIO: this.productoAagregar.PRECIO
       })
       this.cantidad = ''
       this.productoAagregar = ''
@@ -274,7 +278,11 @@ methods:{
       }
     },
     finalizarPedido(){
-      this.$router.push('/infoPedido&cotizacion')
+      if(this.productosSeleccionados.length > 0){
+        this.$router.push('/infoPedido&cotizacion')
+      }else{
+        this.productosFaltantes = true
+      }
     }
 }
 }

@@ -21,6 +21,24 @@
             {{logoSesion}}
           </v-icon>
         </v-btn>
+        <!-- ICONO DE CARRITO DE COMPRAS -->
+        <v-menu v-if="pedidoWeb" open-on-hover app dark offset-y>
+          <template v-slot:activator="{ on}">
+          <v-btn icon v-on="on">
+            <v-icon>
+              mdi-cart-variant 
+            </v-icon>
+            ({{cantidadProductos.length}})
+          </v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-for="(prod,o) in cantidadProductos" :key="o">
+              <v-list-item-title >
+                {{prod.NOMBRE}} ({{prod.CANTIDAD}})
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <!-- OPCIONES DE USUARIO -->  
       <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
@@ -235,7 +253,9 @@ export default {
           label:'Cuenta',
           url:'/cuentaBancaria'
         }
-      ]
+      ],
+      pedidoWeb: false,
+      cantidadProductos: this.$store.state.productosPedido.length
     }
   },
   methods: {
@@ -247,7 +267,7 @@ export default {
     }
   },
   computed:{
-    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor','user'])
+    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor','user','esPedido','productosPedido'])
   },
   watch:{
     usuarioRegistrado(newValue){
@@ -264,6 +284,12 @@ export default {
     },
     user(newValue){
       this.nombreUsuario = newValue.name
+    },
+    esPedido(newValue){
+      this.pedidoWeb = newValue
+    },
+    productosPedido(newValue){
+      this.cantidadProductos = newValue
     }
   }
 }

@@ -2,14 +2,18 @@
     <v-data-table :headers="headers" :items="productosAgregados" class="elevation-1"
     :footer-props="{'items-per-page-text':'Productos por pagina'}"
     no-data-text = 'NO HA CARGADO NINGUN PRODUCTO'>
-    <v-toolbar flat>
-        <v-toolbar-title>PRODUCTOS</v-toolbar-title>
-    </v-toolbar>
-    <template v-slot:[`item.actions`]="{ item }">
-      <v-icon small @click="deleteItem(item)" >
-        mdi-delete
-      </v-icon>
-    </template>
+        <v-toolbar flat>
+            <v-toolbar-title>PRODUCTOS</v-toolbar-title>
+        </v-toolbar>
+        <template v-slot:[`item.actions`]="{ item }">
+        <v-icon small @click="deleteItem(item)" >
+            mdi-delete
+        </v-icon>
+        </template>
+        <template v-slot:footer >
+            <div style="text-align:center">Total Pedido: 
+                $ {{totalPedido}}+IVA</div>
+        </template>
     </v-data-table>
 </template>
 
@@ -38,9 +42,14 @@ data(){
                     text:'CANTIDAD',
                     value:'CANTIDAD'
                 },
+                {
+                    text:'PRECIO',
+                    value:'PRECIO'
+                },
                 { text: '', value: 'actions', sortable: false },
             ],
-            esPedidoWeb:false
+            esPedidoWeb:false,
+            totalPedido: 0,
     }
 },
 computed:{
@@ -61,12 +70,16 @@ mounted(){
     }else{
         this.productosAgregados = []
     }
+    this.productosAgregados.forEach(e => {
+        this.totalPedido += (parseInt(e.PRECIO)*parseInt(e.CANTIDAD))
+    })
+
 },
 methods:{
     deleteItem(item){
         var indexItem = this.productosAgregados.indexOf(item)
         this.productosAgregados.splice(indexItem,1)
-    }
+    },
 }
 }
 </script>

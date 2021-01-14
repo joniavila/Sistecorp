@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Dashboard</h1>
+    <h1 style="text-align:center">Dashboard</h1>
 
     <v-row>
       <v-col v-for="sale in sales" :key="`${sale.title}`" cols="12" md="4">
@@ -22,23 +22,23 @@
 
     <v-row>
       <v-col cols="12" md="8">
-        <EmployeesTable :employees="employees" @select-employee="setEmployee" />
+        <EmployeesTable :usuarios="usuarios" @select-employee="setEmployee" />
       </v-col>
-      <v-col cols="12" md="4">
+      <!-- <v-col cols="12" md="4">
         <EventTimeline :timeline="timeline" />
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-row id="below-the-fold" v-intersect="showMoreContent">
       <v-col cols="12" md="8">
-        <EmployeesTable :employees="employees" @select-employee="setEmployee" />
+        <!-- <EmployeesTable :employees="employees" @select-employee="setEmployee" /> -->
       </v-col>
-      <v-col cols="12" md="4">
+      <!-- <v-col cols="12" md="4">
         <EventTimeline :timeline="timeline" />
-      </v-col>
+      </v-col> -->
     </v-row>
 
-    <v-row v-if="loadNewContent" id="more-content">
+    <!-- <v-row v-if="loadNewContent" id="more-content">
       <v-col>
         <v-skeleton-loader
           ref="skeleton"
@@ -46,7 +46,7 @@
           class="mx-auto"
         ></v-skeleton-loader>
       </v-col>
-    </v-row>
+    </v-row> -->
 
     <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.lgAndUp">
       You have selected {{ selectedEmployee.name }},
@@ -60,7 +60,7 @@
 
 <script>
 import EmployeesTable from '../components/EmployeesTable'
-import EventTimeline from '../components/EventTimeline'
+// import EventTimeline from '../components/EventTimeline'
 import SalesGraph from '../components/SalesGraph'
 import StatisticCard from '../components/StatisticCard'
 
@@ -68,12 +68,14 @@ import employeesData from '../data/employees.json'
 import timelineData from '../data/timeline.json'
 import salesData from '../data/sales.json'
 import statisticsData from '../data/statistics.json'
+import axios from 'axios'
+const BaseUrlUsuarios = 'http://localhost:3000/usuarios '
 
 export default {
   name: 'DashboardPage',
   components: {
     EmployeesTable,
-    EventTimeline,
+    // EventTimeline,
     SalesGraph,
     StatisticCard
   },
@@ -88,8 +90,16 @@ export default {
       },
       snackbar: false,
       statistics: statisticsData,
-      timeline: timelineData
+      timeline: timelineData,
+      usuarios: []
     }
+  },
+  mounted(){
+    axios.get(BaseUrlUsuarios).then(res => {
+      if(res.status === 200){
+        this.usuarios= res.data
+      }
+    })
   },
   methods: {
     setEmployee(event) {

@@ -57,7 +57,6 @@ export default {
     },
     methods:{
         async confirmarPedido(){
-            if(this.productos.length > 0){
             var pedidoNuevo = {
                 id: this.nroPedido,
                 datosPedido: this.datosPedido,
@@ -69,6 +68,7 @@ export default {
                 if(res.status === 201 || res.status === 200 ){
                     this.succesPedido = true
                     pedidoNuevo = {}
+                    this.$store.state.esPedido = false
                 }else{
                     this.mensajeError = "ERROR AL CARGAR PEDIDO, POR FAVOR INTENTE NUEVAMENTE"
                     this.errorPedido = !this.errorPedido
@@ -78,13 +78,8 @@ export default {
                 // routeo
                 this.$router.push('/pedidos')
             })
-        }else{
-            this.mensajeError = "DEBE INGRESAR PRODUCTOS PARA HACER EL PEDIDO"
-            this.errorPedido = true
         }
-        }
-    }
-
+    },
 }
 </script>
 

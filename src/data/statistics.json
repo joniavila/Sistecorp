@@ -1,18 +1,18 @@
 [
   {
-    "title": "Employees",
+    "title": "Presupuestos del Mes",
     "value": "65"
   },
   {
-    "title": "Ream Sold",
-    "value": "983,000"
+    "title": "Monto Facturado",
+    "value": "$983.000"
   },
   {
-    "title": "Rating",
-    "value": "4.5"
+    "title": "Promedio Markup",
+    "value": "30%"
   },
   {
-    "title": "Revenue",
-    "value": "$2.3M"
+    "title": "Ganancias Estimadas",
+    "value": "$294.900"
   }
 ]
