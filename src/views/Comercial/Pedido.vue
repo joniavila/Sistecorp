@@ -32,7 +32,7 @@ export default {
             mensajeError:'',
             productos: [],
             datosPedido: '',
-            nroPedido: '',
+            totalPedido: 0
         }
     },
     components:{
@@ -40,9 +40,11 @@ export default {
         TablaProductosPedido
     },
     mounted(){
-        axios.get(BaseURL).then(res => { this.nroPedido = res.data.length+1})
         this.productos = this.$store.state.productosPedido
+        this.productos.forEach(e => {
+        this.totalPedido += (parseInt(e.PRECIO)*parseInt(e.CANTIDADSOLICITADA))})
         this.datosPedido = this.$store.state.datosPedidoNuevo
+        this.$store.state.esPedido = true
     },
     computed:{
         ...mapState(['datosPedidoNuevo','productosPedido'])
@@ -58,9 +60,9 @@ export default {
     methods:{
         async confirmarPedido(){
             var pedidoNuevo = {
-                id: this.nroPedido,
                 datosPedido: this.datosPedido,
                 productos: this.productos,
+                monto: this.totalPedido,
                 estado: 'ACEPTADO',
                 solicitud:'PEDIDO'
             }
@@ -69,6 +71,7 @@ export default {
                     this.succesPedido = true
                     pedidoNuevo = {}
                     this.$store.state.esPedido = false
+                    this.$store.state.productosPedido = []
                 }else{
                     this.mensajeError = "ERROR AL CARGAR PEDIDO, POR FAVOR INTENTE NUEVAMENTE"
                     this.errorPedido = !this.errorPedido

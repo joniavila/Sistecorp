@@ -86,6 +86,7 @@ methods:{
                 id: this.nroPedido,
                 datosPedido: this.datosPedido,
                 productos: this.productos,
+                monto:'SIN COTIZAR',
                 estado: 'PENDIENTE',
                 solicitud:'COTIZACION'
             }

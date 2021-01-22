@@ -40,7 +40,7 @@ data(){
                 },
                 {
                     text:'CANTIDAD',
-                    value:'CANTIDAD'
+                    value:'CANTIDADSOLICITADA'
                 },
                 {
                     text:'PRECIO',
@@ -65,15 +65,10 @@ watch:{
 },
 mounted(){
     this.esPedidoWeb = this.$store.state.esPedido
-    if(this.esPedidoWeb){
-        this.productosAgregados = this.$store.state.productosPedido
-    }else{
-        this.productosAgregados = []
-    }
+    this.productosAgregados = this.$store.state.productosPedido
     this.productosAgregados.forEach(e => {
-        this.totalPedido += (parseInt(e.PRECIO)*parseInt(e.CANTIDAD))
+        this.totalPedido += (parseInt(e.PRECIO)*parseInt(e.CANTIDADSOLICITADA))
     })
-
 },
 methods:{
     deleteItem(item){

@@ -3,6 +3,8 @@
     {
       "id": "1",
       "name": "Jonas Avila",
+      "cuit": "37094451",
+      "razonSocial": "",
       "mail": "jonasavila@gmail.com",
       "contraseña": "jonas123",
       "administrador": true,
@@ -11,6 +13,8 @@
     {
       "id": "2",
       "name": "Matias Arizaga",
+      "cuit": "319684963",
+      "razonSocial": "SISTECORP SA",
       "mail": "matiasarizaga@gmail.com",
       "contraseña": "mati123",
       "administrador": true,
@@ -19,6 +23,8 @@
     {
       "id": "3",
       "name": "Usuario Final",
+      "cuit": "123456798",
+      "razonSocial": "",
       "mail": "user@gmail.com",
       "contraseña": "user123",
       "administrador": false,
@@ -26,11 +32,53 @@
     },
     {
       "id": 4,
-      "name": "vendedor Jonas",
-      "mail": "asd@gmail.com",
+      "name": "vendedor X",
+      "cuit": "319684963",
+      "razonSocial": "",
+      "mail": "ventas@sistecorp.com",
       "contraseña": "joju123",
       "administrador": false,
       "vendedor": true
+    },
+    {
+      "id": 5,
+      "name": "compras",
+      "cuit": "309869642",
+      "razonSocial": "Cibie Argentina S.A",
+      "mail": "compras@valeo.com",
+      "contraseña": "valeo2020",
+      "administrador": false,
+      "vendedor": false
+    },
+    {
+      "id": 6,
+      "name": "compras osde",
+      "cuit": "30546741251",
+      "razonSocial": "OSDE ORGANIZACION DE SERVICIOS DIRECTOS EMPRESARIOS",
+      "mail": "compras@osde.com.ar",
+      "contraseña": "osde2019",
+      "administrador": false,
+      "vendedor": false
+    },
+    {
+      "id": 7,
+      "name": "deloitte",
+      "cuit": "30711611742",
+      "razonSocial": "DELOITTE S.A",
+      "mail": "administracion@deloitte.com",
+      "contraseña": "deloitte2020",
+      "administrador": false,
+      "vendedor": false
+    },
+    {
+      "id": 8,
+      "name": "cono",
+      "cuit": "30708095714",
+      "razonSocial": "CONO S.R.L.",
+      "mail": "presupuestos@cono.com",
+      "contraseña": "cono2020",
+      "administrador": false,
+      "vendedor": false
     }
   ],
   "productos": [
@@ -46,16 +94,14 @@
       "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
       "CATEGORIA": "MICRO",
       "PRECIO": "100",
-      "PROVEEDOR": "AIR",
-      "CANTIDAD": 56,
+      "CANTIDAD": 54,
       "id": 61
     },
     {
       "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
       "CATEGORIA": "MICRO",
       "PRECIO": "651",
-      "PROVEEDOR": "TRADEIT",
-      "CANTIDAD": 288,
+      "CANTIDAD": 285,
       "id": 72
     },
     {
@@ -510,8 +556,7 @@
       "NOMBRE": "PALO SELFIE - COLTROL REMOTO BLUETOOTH",
       "CATEGORIA": "MICRO",
       "PRECIO": "306",
-      "PROVEEDOR": "AIR",
-      "CANTIDAD": 95,
+      "CANTIDAD": 91,
       "id": 223
     },
     {
@@ -3539,152 +3584,193 @@
       "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
       "CATEGORIA": "OTROS",
       "PRECIO": "1",
-      "PROVEEDOR": "AIR",
-      "CANTIDAD": "100",
+      "CANTIDAD": 90,
       "id": 3519
     }
   ],
   "pedidos": [
     {
-      "id": 1,
-      "datosPedido": {
-        "fecha": "2020-12-30",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2020-12-31",
-        "nombreContacto": "Jonas Avila",
-        "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Contado Efectivo",
-        "formaEntrega": "Envio a cargo del proveedor"
-      },
-      "productos": [
-        {
-          "id": 0,
-          "NOMBRE": "PRODUCTO 1",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "1"
-        },
-        {
-          "id": 1,
-          "NOMBRE": "PRODUCTO 2",
-          "CATEGORIA": "REDES",
-          "CANTIDAD": "2"
-        },
-        {
-          "id": 2,
-          "NOMBRE": "PRODUCTO 3",
-          "CATEGORIA": "TELEFONIA",
-          "CANTIDAD": "4"
-        }
-      ],
-      "estado": "PENDIENTE",
-      "solicitud": "COTIZACION"
-    },
-    {
       "id": 2,
       "datosPedido": {
-        "fecha": "2021-01-05",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2021-01-06",
-        "nombreContacto": "Usuario Final",
-        "mailContacto": "user@gmail.com",
+        "fecha": "2021-01-18",
+        "usuarioRegistrado": "presupuestos@cono.com",
+        "fechaEntrega": "2021-01-19",
+        "nombreContacto": "compras",
+        "mailContacto": "presupuestos@cono.com",
+        "cuit": "30708095714",
+        "razonSocial": "CONO S.R.L.",
         "formaPago": "Contado Efectivo",
-        "formaEntrega": "Retiro por oficina comercial"
+        "formaEntrega": "Envio a cargo del proveedor"
       },
       "productos": [
         {
           "id": 0,
           "NOMBRE": "PRODUCTO X",
-          "CATEGORIA": "REDES",
-          "CANTIDAD": "1"
+          "CATEGORIA": "ENERGIA",
+          "CANTIDAD": "2"
         },
         {
           "id": 1,
-          "NOMBRE": "PRODUCTO Y ",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "2"
+          "NOMBRE": "PRODUCTO Y",
+          "CATEGORIA": "ENERGIA",
+          "CANTIDAD": "3"
         }
       ],
+      "monto": "SIN COTIZAR",
       "estado": "PENDIENTE",
       "solicitud": "COTIZACION"
     },
     {
-      "id": 3,
       "datosPedido": {
-        "fecha": "2021-01-07",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2021-01-08",
+        "fecha": "2021-01-20",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-01-21",
         "nombreContacto": "Jonas Avila",
         "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Contado Efectivo",
+        "cuit": "37094451",
+        "razonSocial": "",
+        "formaPago": "Tarjeta",
         "formaEntrega": "Envio a cargo del proveedor"
       },
       "productos": [
-        {
-          "id": 48,
-          "NOMBRE": "PLACA PCI  SERIAL  2P CHIP WCH352L NS-PLSE2 NISUTA",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "1"
-        },
         {
           "id": 61,
           "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
           "CATEGORIA": "MICRO",
-          "CANTIDAD": "1"
-        }
-      ],
-      "estado": "ACEPTADO",
-      "solicitud": "PEDIDO"
-    },
-    {
-      "id": 4,
-      "datosPedido": {
-        "fecha": "2021-01-07",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2021-01-08",
-        "nombreContacto": "Jonas Avila",
-        "mailContacto": "jonasavila@gmail.com",
-        "formaPago": "Contado Efectivo",
-        "formaEntrega": "Envio a cargo del proveedor"
-      },
-      "productos": [
-        {
-          "id": 48,
-          "NOMBRE": "PLACA PCI  SERIAL  2P CHIP WCH352L NS-PLSE2 NISUTA",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "1"
+          "CANTIDADDISPONIBLE": 56,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
         },
         {
-          "id": 181,
-          "NOMBRE": "PARLANTE + MP3 2.1  10W RMS  USB  MADERA  OV-114 OVER TECH",
-          "CATEGORIA": "IMAGEN Y SONIDO",
-          "CANTIDAD": "2"
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 288,
+          "CANTIDADSOLICITADA": "3",
+          "PRECIO": "651"
+        },
+        {
+          "id": 223,
+          "NOMBRE": "PALO SELFIE - COLTROL REMOTO BLUETOOTH",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 95,
+          "CANTIDADSOLICITADA": "4",
+          "PRECIO": "306"
         }
       ],
-      "estado": "ACEPTADO",
-      "solicitud": "PEDIDO"
+      "monto": 3377,
+      "estado": "FACTURADO",
+      "solicitud": "PEDIDO",
+      "id": 3
     },
     {
-      "id": 5,
       "datosPedido": {
-        "fecha": "2021-01-12",
-        "usuarioRegistrado": null,
-        "fechaEntrega": "2021-01-13",
+        "fecha": "2021-01-20",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-01-21",
         "nombreContacto": "Jonas Avila",
         "mailContacto": "jonasavila@gmail.com",
+        "cuit": "37094451",
+        "razonSocial": "",
         "formaPago": "Contado Efectivo",
         "formaEntrega": "Envio a cargo del proveedor"
       },
       "productos": [
         {
-          "id": 48,
-          "NOMBRE": "PLACA PCI  SERIAL  2P CHIP WCH352L NS-PLSE2 NISUTA",
-          "CATEGORIA": "MICRO",
-          "CANTIDAD": "1",
-          "PRECIO": "100"
+          "id": 3519,
+          "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
+          "CATEGORIA": "OTROS",
+          "CANTIDADDISPONIBLE": "100",
+          "CANTIDADSOLICITADA": "10",
+          "PRECIO": "1"
         }
       ],
-      "estado": "ACEPTADO",
-      "solicitud": "PEDIDO"
+      "monto": 10,
+      "estado": "FACTURADO",
+      "solicitud": "PEDIDO",
+      "id": 4
+    }
+  ],
+  "facturas": [
+    {
+      "fecha": "20/1/2021",
+      "datosCliente": {
+        "cliente": "",
+        "MailCliente": "jonasavila@gmail.com",
+        "CUIT": "37094451",
+        "nombreContacto": "Jonas Avila"
+      },
+      "formaDePago": "Tarjeta",
+      "monto": 4086.17,
+      "productos": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 56,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 288,
+          "CANTIDADSOLICITADA": "3",
+          "PRECIO": "651"
+        },
+        {
+          "id": 223,
+          "NOMBRE": "PALO SELFIE - COLTROL REMOTO BLUETOOTH",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 95,
+          "CANTIDADSOLICITADA": "4",
+          "PRECIO": "306"
+        }
+      ],
+      "usuarioFacturante": {
+        "id": "1",
+        "name": "Jonas Avila",
+        "cuit": "37094451",
+        "razonSocial": "",
+        "mail": "jonasavila@gmail.com",
+        "contraseña": "jonas123",
+        "administrador": true,
+        "vendedor": true
+      },
+      "id": 1
+    },
+    {
+      "fecha": "20/1/2021",
+      "datosCliente": {
+        "cliente": "",
+        "MailCliente": "jonasavila@gmail.com",
+        "CUIT": "37094451",
+        "nombreContacto": "Jonas Avila"
+      },
+      "formaDePago": "Contado Efectivo",
+      "monto": 12.1,
+      "productos": [
+        {
+          "id": 3519,
+          "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
+          "CATEGORIA": "OTROS",
+          "CANTIDADDISPONIBLE": "100",
+          "CANTIDADSOLICITADA": "10",
+          "PRECIO": "1"
+        }
+      ],
+      "usuarioFacturante": {
+        "id": "1",
+        "name": "Jonas Avila",
+        "cuit": "37094451",
+        "razonSocial": "",
+        "mail": "jonasavila@gmail.com",
+        "contraseña": "jonas123",
+        "administrador": true,
+        "vendedor": true
+      },
+      "id": 2
     }
   ]
 }

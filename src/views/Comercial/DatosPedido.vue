@@ -143,10 +143,12 @@ data: () => ({
 	],
 	checkbox: false,
 	pedidoGuardado: null,
+	datosUsuarioRegistrado:''
 }),
 mounted(){
 	this.esPedidoWeb = this.$store.state.esPedido
 	this.pedidoGuardado = this.$store.state.datosPedidoNuevo
+	this.datosUsuarioRegistrado = this.$store.state.user
 	if(this.pedidoGuardado){
 		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
 		this.nombre = this.pedidoGuardado.nombreContacto
@@ -154,9 +156,10 @@ mounted(){
 		this.formaDePagoSeleccionada = this.pedidoGuardado.formaPago
 		this.formaDeEntregaSeleccionada = this.pedidoGuardado.formaEntrega
 	}
+	this.$store.state.esPedido = false
 },
 computed:{
-    ...mapState(['datosPedidoNuevo','esPedido'])
+    ...mapState(['datosPedidoNuevo','esPedido','user'])
 },
 watch:{
     datosPedidoNuevo(newValue){
@@ -166,6 +169,9 @@ watch:{
 		if(newValue){
 			this.esPedidoWeb = newValue
 		}
+	},
+	user(newValue){
+		this.datosUsuarioRegistrado = newValue
 	}
 },
 methods: {
@@ -175,10 +181,12 @@ methods: {
 			if(this.esPedidoWeb){
 				this.$store.state.datosPedidoNuevo = {
 				fecha: this.date,
-				usuarioRegistrado: localStorage.getItem('User'),
+				usuarioRegistrado: this.datosUsuarioRegistrado.mail,
 				fechaEntrega:this.fechaEntrega,
-				nombreContacto: localStorage.getItem('name').replace('"','').replace('"',''),
-				mailContacto: localStorage.getItem('user').replace('"','').replace('"',''),
+				nombreContacto: this.datosUsuarioRegistrado.name,
+				mailContacto: this.datosUsuarioRegistrado.mail,
+				cuit: this.datosUsuarioRegistrado.cuit,
+				razonSocial: this.datosUsuarioRegistrado.razonSocial,
 				formaPago:this.formaDePagoSeleccionada,
 				formaEntrega:this.formaDeEntregaSeleccionada
 				}
@@ -186,10 +194,12 @@ methods: {
 			}else{
 				this.$store.state.datosPedidoNuevo = {
 				fecha: this.date,
-				usuarioRegistrado: localStorage.getItem('User'),
+				usuarioRegistrado: this.datosUsuarioRegistrado.mail,
 				fechaEntrega:this.fechaEntrega,
 				nombreContacto: this.nombre,
 				mailContacto: this.email,
+				cuit: this.datosUsuarioRegistrado.cuit,
+				razonSocial: this.datosUsuarioRegistrado.razonSocial,
 				formaPago:this.formaDePagoSeleccionada,
 				formaEntrega:this.formaDeEntregaSeleccionada
 				}
@@ -201,8 +211,8 @@ methods: {
 		this.$refs.form.reset()
 	},
 	cargarDatos(){
-		this.email = localStorage.getItem('user').replace('"','').replace('"','')
-		this.nombre = localStorage.getItem('name').replace('"','').replace('"','')
+		this.email = this.datosUsuarioRegistrado.mail
+		this.nombre = this.datosUsuarioRegistrado.name
 	}
 },
 }

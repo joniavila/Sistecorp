@@ -22,7 +22,7 @@
           </v-icon>
         </v-btn>
         <!-- ICONO DE CARRITO DE COMPRAS -->
-        <v-menu v-if="pedidoWeb" open-on-hover app dark offset-y>
+        <!-- <v-menu v-if="pedidoWeb" open-on-hover app dark offset-y>
           <template v-slot:activator="{ on}">
           <v-btn icon v-on="on">
             <v-icon>
@@ -38,7 +38,7 @@
               </v-list-item-title>
             </v-list-item>
           </v-list>
-        </v-menu>
+        </v-menu> -->
         <!-- OPCIONES DE USUARIO -->  
       <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">

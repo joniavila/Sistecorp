@@ -19,11 +19,6 @@ const router = new Router({
       component: () => import('./views/Login.vue')
     },
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: () => import('./views/Dashboard.vue')
-    },
-    {
       path: '/signup',
       name: 'signup',
       component: () => import('./views/Signup.vue')
@@ -38,27 +33,39 @@ const router = new Router({
     {
       path: '/infoPedido&cotizacion',
       name: 'DatosPedido',
-      component: ()=> import('./views/DatosPedido.vue')
+      component: ()=> import('./views/Comercial/DatosPedido.vue')
     },
     {
       path: '/cargaProductos',
       name: 'cargaProductosCotizacion',
-      component: ()=> import('./views/Cotizacion.vue')
+      component: ()=> import('./views/Comercial/Cotizacion.vue')
     },
     {
       path: '/pedidos',
       name: 'Historial',
-      component: ()=> import('./views/HistorialPedidos.vue')
+      component: ()=> import('./views/Comercial/HistorialPedidos.vue')
     },
     {
       path: '/pedidoWeb',
       name: 'pedidoWeb',
-      component: ()=> import('./views/PedidoWeb.vue')
+      component: ()=> import('./views/Comercial/PedidoWeb.vue')
     },
     {
       path: '/confirmacionPedido',
       name: 'confirmacionPedido',
-      component: ()=> import('./views/Pedido.vue')
+      component: ()=> import('./views/Comercial/Pedido.vue')
+    },
+    // ADMINISTRACION
+    {
+      path: '/facturacion',
+      name: 'facturacion',
+      component: ()=> import('./views/Administracion/Facturacion.vue')
+    },
+    // NEGOCIO
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('./views/Negocio/Dashboard.vue')
     },
   ]
 })  

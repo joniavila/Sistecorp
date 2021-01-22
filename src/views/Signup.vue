@@ -12,19 +12,24 @@
             required
           ></v-text-field>
           <v-text-field
-            type="number"
-            v-model="cuit"
-            label="CUIT"
-            :rules="cuitRules"
-          ></v-text-field>
-          <v-text-field
             v-model="contraseña"
             label="Contraseña"
             :rules="contraRules"
           ></v-text-field>
           <v-text-field
+            type="number"
+            v-model="cuit"
+            label="CUIT o CUIL (sin guiones)"
+            :rules="cuitRules"
+          ></v-text-field>
+          <v-text-field
             v-model="nombre "
             label="Nombre de Usuario"
+            :rules="nombreRules"
+          ></v-text-field>
+          <v-text-field
+            v-model="razonSocial"
+            label="Nombre de Usuario o Razon Social"
             :rules="nombreRules"
           ></v-text-field>
           <v-text-field
@@ -53,6 +58,7 @@
         </v-form>
       </v-col>
     </v-row>
+    <v-alert :color="colorSnackBar" v-model="snackbar" :timeout="2000" centered dismissible>{{mensaje}}</v-alert>
   </v-container>
 </template>
 
@@ -62,6 +68,9 @@ import axios from 'axios'
 const baseURL = 'http://localhost:3000/usuarios'
 export default {
   data: () => ({
+    colorSnackBar: '',
+    snackbar:false,
+    mensaje: '',
     agreeToTerms: false,
     agreeToTermsRules: [
       value =>
@@ -91,6 +100,7 @@ export default {
     ],
     formValidity: false,
     nombre:'',
+    razonSocial: '',
     nombreRules: [
       value => !!value || 'Debe ingresar un nombre'
     ],
@@ -123,15 +133,31 @@ export default {
       var user = {
         id: id,
         name: this.nombre,
+        cuit: this.cuit,
+        razonSocial: this.razonSocial,
         mail: this.email,
         contraseña:this.contraseña,
-        administrador:false
+        administrador:false,
+        vendedor:false
       }
       try{
         if(user){
-          const res = await axios.post(baseURL, user)
-          this.listaUsuarios = [...this.listaUsuarios, res.data]
-          this.resetForm()
+          await axios.post(baseURL, user).then(res =>{
+            if(res.status === 201 ||res.status === 200 ){
+              this.colorSnackBar = 'success'
+              this.mensaje = 'EL USUARIO HA SIDO REGISTRADO CON EXITO'
+              this.snackbar = true
+              this.listaUsuarios = [...this.listaUsuarios, res.data]
+              this.resetForm()
+            }else{
+              this.colorSnackBar = 'error'
+              this.mensaje = 'HUBO UN ERROR AL CARGAR EL USUARIO, INTENTE NUEVAMENTE'
+              this.snackbar = true
+            }
+          }).then( () => {
+            this.$router.push('/login')
+          })
+          
         }
       }catch(e){
         alert(e)

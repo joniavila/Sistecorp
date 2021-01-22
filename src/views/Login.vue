@@ -16,14 +16,19 @@
 				/>
 			</v-form>
 		</v-card-text>
+		<!-- ALERTS -->
 		<v-alert type="success" 
 		:value="alert"
 		transition="slide-y-transition"
-		>El usuario se ha logueado con exito</v-alert>
-		<v-alert color="red" 
+		>EL USUARIO SE HA LOGUEADO CON EXITO</v-alert>
+		<v-alert color="error" 
 		:value="alert2"
 		transition="slide-y-transition"
-		>Usuario o contraseña incorrectos</v-alert>
+		>USUARIO O CONTRASEÑA INCORRECTO</v-alert>
+		<v-alert color="error" 
+		:value="alert3"
+		transition="slide-y-transition"
+		>SE PRODUJO UN ERROR AL INGRESAR, INTENTE NUEVAMENTE</v-alert>
 		<v-divider></v-divider>
 		<v-card-actions>
 			<v-btn color="success" @click="register">Registrese</v-btn>
@@ -49,16 +54,11 @@ export default {
 			// ingreso: false,
 			errorIngreso: false,
 			alert:false,
-			alert2: false
+			alert2: false,
+			alert3:false
 		}
 	},
 	async created(){
-      try{
-        const res = await axios.get(baseURL)
-        this.listaUsuarios = res.data
-      }catch(e){
-        alert(e)
-      }
 	},
 	mounted: function () {
     if(alert){
@@ -66,42 +66,44 @@ export default {
 	}
 	},
 	methods:{
-		login(){
-			// corrobora que el cliente se encuentre registrado , si es un cliente o un administrador
-			this.listaUsuarios.forEach(e => {
-				if((this.usuario === e.mail ) && (this.contraseña === e.contraseña)){
-					this.$store.state.ingreso = true
-					var userData = {
-						usuario : this.usuario,
-						contraseña: this.contraseña,
-						name: e.name
+		async login(){
+			await axios.get(baseURL+`?q=${this.usuario}`).then(res => {
+				if(res.status === 200){
+					if(res.data){
+						if(res.data[0].contraseña === this.contraseña){
+							this.$store.state.ingreso = true
+							if(res.data[0].administrador === true){
+								this.$store.state.administrador = true
+							}
+							if(res.data[0].vendedor === true){
+								this.$store.state.vendedor = true
+							}
+							if(res.data[0].vendedor === false && res.data[0].administrador === false){
+								this.$store.state.usuarioRegistrado = true
+							}
+							this.alert = true
+							localStorage.setItem('user', JSON.stringify(res.data[0].mail))
+							localStorage.setItem('password',JSON.stringify(res.data[0].contraseña))
+							localStorage.setItem('name',JSON.stringify(res.data[0].name))
+							this.$store.state.user = res.data[0]
+							this.$router.push('/')
+						}else{
+							this.alert2 = true
+						}
+					}else{
+						this.alert2 = true
 					}
-					if(e.administrador === true){
-						this.$store.state.administrador = true
-					}
-					if(e.vendedor === true){
-						this.$store.state.vendedor = true
-					}
-					if(e.vendedor === false && e.administrador === false){
-						this.$store.state.usuarioRegistrado = true
-					}
-					this.alert = true
-					localStorage.setItem('user', JSON.stringify(userData.usuario))
-					localStorage.setItem('password',JSON.stringify(userData.contraseña))
-					localStorage.setItem('name',JSON.stringify(userData.name))
-					this.$store.state.user = userData
-					this.$router.push('/')
+				}else{
+					this.alert3 = true
 				}
-			});
-			if(this.ingreso === false){
-				this.alert2 = true
-			}
+			})
 		},
 		hide_alert: function () {
 			// `event` is the native DOM event
 			window.setInterval(() => {
 				this.alert = false;
 				this.alert2 = false
+				this.alert3 = false
 			}, 3000)    
 		},
 		register(){

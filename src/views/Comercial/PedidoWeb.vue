@@ -1,6 +1,30 @@
 <template>
 <div>
   <v-card dark>
+  <v-speed-dial
+      :top="true"
+      :left="true"
+      direction="right"
+      :open-on-hover="true"
+      transition="slide-y-transition"
+      absolute
+    >
+      <template v-slot:activator>
+          <v-btn class="primary">
+            <v-icon>
+              mdi-cart-variant 
+            </v-icon>
+            ({{productosSeleccionados.length}})
+          </v-btn>
+      </template>
+          <v-list dark>
+            <v-list-item v-for="(prod,o) in productosSeleccionados" :key="o">
+              <v-list-item-title >
+                {{prod.NOMBRE}} ({{prod.CANTIDAD}})
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+  </v-speed-dial>
     <v-row justify="space-around" >
     <v-col cols="12" sm="10" md="8" >
       <v-sheet elevation="10" class="py-4 px-12">
@@ -115,7 +139,7 @@
       </v-row>
       <div class="text-center" v-if="listaProducto.length >0">
           <v-pagination v-model="page" :length="Math.ceil(listaProducto.length/perPage)"></v-pagination>
-          <v-btn color="success" style="float:right" x-large @click="finalizarPedido()">FINALIZAR PEDIDO ({{productosSeleccionados.length}})</v-btn>
+          <v-btn color="success" style="float:right" x-large @click="finalizarPedido()">CONFIRMAR({{productosSeleccionados.length}})</v-btn>
       </div>
     </div>
           <v-alert type="warning" style="text-align:center" v-if="productosFaltantes" v-model="productosFaltantes" dismissible>DEBE AGREGAR UN PRODUCTO A SU PEDIDO!</v-alert>
@@ -256,7 +280,7 @@ methods:{
     },
     agregarProducto(){
       //AGREGAMOS EL PRODUCTO A UNA LISTA DE LA VISTA Y AL STORE
-      if(this.cantidad < this.productoAagregar.CANTIDAD){
+      if(this.cantidad < parseInt(this.productoAagregar.CANTIDAD)){
       this.agregar = false
       this.productosFaltantes = false
       this.productosSeleccionados.push(this.productoAagregar)
@@ -264,7 +288,8 @@ methods:{
         id:this.productoAagregar.id,
         NOMBRE:this.productoAagregar.NOMBRE,
         CATEGORIA:this.productoAagregar.CATEGORIA,
-        CANTIDAD:this.cantidad,
+        CANTIDADDISPONIBLE:this.productoAagregar.CANTIDAD,
+        CANTIDADSOLICITADA:this.cantidad,
         PRECIO: this.productoAagregar.PRECIO
       })
       this.cantidad = ''

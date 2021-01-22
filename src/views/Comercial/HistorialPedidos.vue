@@ -5,16 +5,16 @@
     no-data-text = 'NO TIENE UN HISTORIAL DE PEDIDOS REGISTRADOS'>
     <template v-slot:top>
     <v-toolbar flat>
-        <v-toolbar-title>PEDIDOS Y COTIZACIONES</v-toolbar-title>
+        <v-toolbar-title>PEDIDOS Y COTIZACIONES MIAS</v-toolbar-title>
     </v-toolbar>
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon small @click="deleteItem(item)" >
+      <v-icon v-if="item.estado != 'FACTURADO'" small @click="deleteItem(item)" >
         mdi-delete
       </v-icon>
     </template>
     </v-data-table>
-    <v-alert :color="colorSnackBar" v-model="snackbar" :timeout="2000" centered dismissible>{{mensaje}}</v-alert>
+    <v-alert :color="colorSnackBar" v-model="snackbar" centered dismissible>{{mensaje}}</v-alert>
 </div>
 </template>
 
@@ -62,13 +62,19 @@ export default {
         mensaje:'',
         snackbar:false,
         nombreContacto: '',
-        colorSnackBar: ''
+        colorSnackBar: '',
+        cuitCliente: ''
     }
+},
+created(){
+    window.setInterval(() => {
+        this.snackbar = false
+    }, 4000)
 },
 mounted(){
     // http://localhost:3000/pedidos?q=Jonas%20Avila
-    this.nombreContacto = localStorage.getItem('name').replace('"','').replace('"','')
-    axios.get(BaseURL+`?q=${this.nombreContacto}`).then(res => {
+    this.cuitCliente = this.$store.state.user.cuit
+    axios.get(BaseURL+`?q=${this.cuitCliente}`).then(res => {
         this.pedidos = res.data
     })
 },
@@ -86,7 +92,7 @@ methods:{
               this.snackbar = true
             }
           }).then(()=>{
-            axios.get(BaseURL+`?q=${this.nombreContacto}`).then(res => {
+            axios.get(BaseURL+`?q=${this.cuitCliente}`).then(res => {
                 this.pedidos = res.data
             })
           })

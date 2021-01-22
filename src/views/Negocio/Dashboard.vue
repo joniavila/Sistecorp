@@ -59,15 +59,15 @@
 </template>
 
 <script>
-import EmployeesTable from '../components/EmployeesTable'
+import EmployeesTable from '../../components/EmployeesTable'
 // import EventTimeline from '../components/EventTimeline'
-import SalesGraph from '../components/SalesGraph'
-import StatisticCard from '../components/StatisticCard'
+import SalesGraph from '../../components/SalesGraph'
+import StatisticCard from '../../components/StatisticCard'
 
-import employeesData from '../data/employees.json'
-import timelineData from '../data/timeline.json'
-import salesData from '../data/sales.json'
-import statisticsData from '../data/statistics.json'
+import employeesData from '../../data/employees.json'
+import timelineData from '../../data/timeline.json'
+import salesData from '../../data/sales.json'
+import statisticsData from '../../data/statistics.json'
 import axios from 'axios'
 const BaseUrlUsuarios = 'http://localhost:3000/usuarios '
 
