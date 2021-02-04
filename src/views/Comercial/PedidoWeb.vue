@@ -1,16 +1,17 @@
 <template>
 <div>
-  <v-card dark>
+    <!-- CARRITO DE COMPRAS  -->
   <v-speed-dial
-      :top="true"
-      :left="true"
-      direction="right"
+      direction="left"
       :open-on-hover="true"
       transition="slide-y-transition"
-      absolute
+      fixed
+      bottom
+      right
     >
       <template v-slot:activator>
-          <v-btn class="primary">
+          <v-btn class="primary"
+            fab>
             <v-icon>
               mdi-cart-variant 
             </v-icon>
@@ -25,6 +26,8 @@
             </v-list-item>
           </v-list>
   </v-speed-dial>
+  <!-- SECCION CATEGORIAS  -->
+  <v-card dark>
     <v-row justify="space-around" >
     <v-col cols="12" sm="10" md="8" >
       <v-sheet elevation="10" class="py-4 px-12">

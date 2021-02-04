@@ -67,6 +67,12 @@ const router = new Router({
       name: 'dashboard',
       component: () => import('./views/Negocio/Dashboard.vue')
     },
+    //CUENTA
+    {
+      path: '/datosCuentaUsuario',
+      name: 'datosCuentaUsuario',
+      component: () => import('./views/Cuenta/DatosCuenta.vue')
+    },
   ]
 })  
   router.beforeEach((to, from, next) => {

@@ -21,24 +21,29 @@
             {{logoSesion}}
           </v-icon>
         </v-btn>
-        <!-- ICONO DE CARRITO DE COMPRAS -->
-        <!-- <v-menu v-if="pedidoWeb" open-on-hover app dark offset-y>
-          <template v-slot:activator="{ on}">
-          <v-btn icon v-on="on">
-            <v-icon>
-              mdi-cart-variant 
-            </v-icon>
-            ({{cantidadProductos.length}})
+        <!-- OPCIONES DE CUENTA -->
+        <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
+        <template v-slot:activator="{ on}">
+          <v-btn v-on="on" text rounded>
+            Cliente
           </v-btn>
-          </template>
-          <v-list>
-            <v-list-item v-for="(prod,o) in cantidadProductos" :key="o">
+        </template>
+            <v-list>
+              <v-list-item
+                v-for="(cuenta,i) in linksCuenta"
+                :key="i"
+              >
               <v-list-item-title >
-                {{prod.NOMBRE}} ({{prod.CANTIDAD}})
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu> -->
+                <v-btn
+                :to="cuenta.url"
+                text
+                rounded>
+                {{ cuenta.label }}
+                </v-btn>
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>     
+      </v-menu>
         <!-- OPCIONES DE USUARIO -->  
       <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
@@ -196,6 +201,20 @@ export default {
           url: '/signup'
         }
       ],
+      linksCuenta:[
+        {
+          label:'Datos Cuenta',
+          url:'/datosCuentaUsuario'
+        },
+        {
+          label:'Usuario/Contraseña',
+          url:'/UsuarioContraseña'
+        },
+        {
+          label:'Preferencias',
+          url: '/preferencias'
+        }
+      ],
       linksUsuario:[
         {
           label:'Crear pedido Web',
@@ -236,8 +255,8 @@ export default {
       ],
       linksVendedor2:[
         {
-          label: 'Consultar Stock',
-          url:'/stockProductos'
+          label: 'MarkUp',
+          url:'/markup'
         },
         {
           label: 'Productos',
