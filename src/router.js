@@ -73,6 +73,11 @@ const router = new Router({
       name: 'datosCuentaUsuario',
       component: () => import('./views/Cuenta/DatosCuenta.vue')
     },
+    {
+      path: '/preferencias',
+      name: 'preferencias',
+      component: () => import('./views/Cuenta/Preferencias.vue')
+    }
   ]
 })  
   router.beforeEach((to, from, next) => {

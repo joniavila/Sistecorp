@@ -67,28 +67,6 @@
               </v-list-item>
             </v-list>     
       </v-menu>
-      <v-menu v-if="usuario" open-on-hover app dark offset-y>
-        <template v-slot:activator="{ on}">
-          <v-btn v-on="on" text rounded>
-            Cliente
-          </v-btn>
-        </template>
-            <v-list>
-              <v-list-item
-                v-for="(user2,i) in linksUsuario2"
-                :key="i"
-              >
-              <v-list-item-title >
-                <v-btn
-                :to="user2.url"
-                text
-                rounded>
-                {{ user2.label }}
-                </v-btn>
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-      </v-menu>
       <!-- OPCIONES DE ADMINISTRADOR -->
       <v-menu v-if="administradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
@@ -207,10 +185,6 @@ export default {
           url:'/datosCuentaUsuario'
         },
         {
-          label:'Usuario/Contraseña',
-          url:'/UsuarioContraseña'
-        },
-        {
           label:'Preferencias',
           url: '/preferencias'
         }
@@ -228,16 +202,6 @@ export default {
           label:'Historial de pedidos',
           url: '/pedidos'
         }
-      ],
-      linksUsuario2:[
-        {
-          label:'Datos Cliente',
-          url:'/cliente'
-        },
-        {
-          label:'Preferencias',
-          url:'/preferencias'
-        },
       ],
       linksVendedor:[
         {

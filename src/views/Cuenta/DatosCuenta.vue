@@ -86,7 +86,7 @@
       dark
     >
       <v-card>
-        <v-card-title class="headline grey lighten-2">
+        <v-card-title>
           CAMBIOS EN DATOS DE CUENTA
         </v-card-title>
 
@@ -172,7 +172,7 @@
         width="500"
     >
       <v-card>
-        <v-card-title class="headline grey lighten-2">
+        <v-card-title>
          CAMBIO USUARIO Y CONTRASEÑA
         </v-card-title>
 

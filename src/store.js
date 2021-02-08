@@ -30,6 +30,20 @@ export default new Vuex.Store({
       'TRADEIT',
       'STARLIGHT',
     ],
+    formasPagoOpcionales: [
+      'Contado Efectivo',
+      'Contado Transferencia',
+      'Tarjeta',
+      'Tarjeta en cuotas',
+      'Cheque a 30 dias',
+      'Cheque a 60 dias',
+      'Cheque a 90 dias'
+    ],
+    formasDeEntregaOpcionales:[
+      'Envio a cargo del proveedor',
+      'Retiro por oficina comercial',
+      'Envio por correo'
+    ],
     datosPedidoNuevo:{
       fecha:'',
       fechaEntrega:'',
@@ -40,7 +54,8 @@ export default new Vuex.Store({
     },
     productosPedido:[],
     banner: true,
-    esPedido: false
+    esPedido: false,
+    productosPreferencia:[]
   },
   mutations: {
   },

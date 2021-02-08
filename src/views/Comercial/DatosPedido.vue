@@ -126,21 +126,9 @@ data: () => ({
 	v => !!v || 'E-mail es un campo obligatorio',
 	v => /.+@.+\..+/.test(v) || 'E-mail debe contener un dominio'],
 	formaDePagoSeleccionada: null,
-	formasPago: [
-	'Contado Efectivo',
-	'Contado Transferencia',
-	'Tarjeta',
-	'Tarjeta en cuotas',
-	'Cheque a 30 dias',
-	'Cheque a 60 dias',
-	'Cheque a 90 dias'
-	],
+	formasPago: this.$store.state.formasPagoOpcionales,
 	formaDeEntregaSeleccionada:null,
-	formasDeEntrega:[
-		'Envio a cargo del proveedor',
-		'Retiro por oficina comercial',
-		'Envio por correo'
-	],
+	formasDeEntrega: this.$store.state.formasDeEntregaOpcionales,
 	checkbox: false,
 	pedidoGuardado: null,
 	datosUsuarioRegistrado:''

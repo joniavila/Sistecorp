@@ -4,9 +4,9 @@
       "id": "1",
       "name": "Jonas Avila",
       "cuit": "37094451",
-      "razonSocial": "Jonas Antonio Avila",
+      "razonSocial": "Jonas Avila",
       "mail": "jonasavila@gmail.com",
-      "contraseña": "jonas1234",
+      "contraseña": "jonas123",
       "administrador": true,
       "vendedor": true
     },
