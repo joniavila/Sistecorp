@@ -114,7 +114,8 @@
 import {mapState} from 'vuex'
 
 export default {
-data: () => ({
+data(){ 
+	return{
 	esPedidoWeb: false,
 	date: new Date().toISOString().substr(0, 10),
 	fechaEntrega: '',
@@ -132,10 +133,13 @@ data: () => ({
 	checkbox: false,
 	pedidoGuardado: null,
 	datosUsuarioRegistrado:''
-}),
+	}
+},
 mounted(){
 	this.esPedidoWeb = this.$store.state.esPedido
-	this.pedidoGuardado = this.$store.state.datosPedidoNuevo
+	if(this.$store.state.datosPedidoNuevo){
+		this.pedidoGuardado = this.$store.state.datosPedidoNuevo
+	}
 	this.datosUsuarioRegistrado = this.$store.state.user
 	if(this.pedidoGuardado){
 		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
@@ -147,7 +151,7 @@ mounted(){
 	this.$store.state.esPedido = false
 },
 computed:{
-    ...mapState(['datosPedidoNuevo','esPedido','user'])
+    ...mapState(['datosPedidoNuevo','esPedido','user','formasPagoOpcionales','formasDeEntregaOpcionales'])
 },
 watch:{
     datosPedidoNuevo(newValue){
@@ -201,6 +205,8 @@ methods: {
 	cargarDatos(){
 		this.email = this.datosUsuarioRegistrado.mail
 		this.nombre = this.datosUsuarioRegistrado.name
+		this.formaDeEntregaSeleccionada = this.datosUsuarioRegistrado.preferencias.formaEntrega
+		this.formaDePagoSeleccionada = this.datosUsuarioRegistrado.preferencias.formaPago
 	}
 },
 }

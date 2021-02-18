@@ -12,6 +12,7 @@ export default new Vuex.Store({
     usuarioRegistrado: false,
     administrador: false,
     vendedor:false,
+    superAdministrador:false,
     categorias:[
       'MICRO',
       'REDES',

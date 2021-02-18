@@ -2,12 +2,14 @@
 <div>
     <!-- CARRITO DE COMPRAS  -->
   <v-speed-dial
-      direction="left"
+      style="margin-left:20px"
+      direction="top"
       :open-on-hover="true"
-      transition="slide-y-transition"
+      transition="slide-x-transition"
+      origin="200px 50px"
       fixed
       bottom
-      right
+      left
     >
       <template v-slot:activator>
           <v-btn class="primary"

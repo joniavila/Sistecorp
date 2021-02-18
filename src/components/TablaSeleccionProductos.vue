@@ -15,17 +15,18 @@
         show-select
         v-model="selected"
         :headers="headers"
+        @item-selected="itemSelected"
         :items="productos"
         :search="search"
         no-data-text = 'NO HA CARGADO NINGUN PRODUCTO'
     >
     <template v-slot:footer>
-    <v-btn
+    <!-- <v-btn
         color="success"
         style="width:100%"
         @click="$emit('close-dialog')">
             GUARDAR
-        </v-btn>
+        </v-btn> -->
     </template>
     </v-data-table>
   </v-card>
@@ -67,11 +68,14 @@ created(){
         }
     })
 },
-methods:{
-   guardarProductosPreferencia(){
-       this.$store.state.productosPreferencia = this.selected
-       this.$emit('close-dialog')
-   }
+mounted(){
+},
+methods:{ 
+       itemSelected(prod){
+           this.$store.state.productosPreferencia.push({
+               id:prod.item.id,
+               nombre:prod.item.NOMBRE}) 
+       }
 }
 }
 </script>

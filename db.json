@@ -8,7 +8,16 @@
       "mail": "jonasavila@gmail.com",
       "contraseña": "jonas123",
       "administrador": true,
-      "vendedor": true
+      "vendedor": true,
+      "superAdministrador":true,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": "2",
@@ -18,7 +27,16 @@
       "mail": "matiasarizaga@gmail.com",
       "contraseña": "mati123",
       "administrador": true,
-      "vendedor": true
+      "vendedor": true,
+      "superAdministrador":true,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": "3",
@@ -28,7 +46,16 @@
       "mail": "user@gmail.com",
       "contraseña": "user123",
       "administrador": false,
-      "vendedor": false
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": 4,
@@ -38,7 +65,16 @@
       "mail": "ventas@sistecorp.com",
       "contraseña": "joju123",
       "administrador": false,
-      "vendedor": true
+      "vendedor": true,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": 5,
@@ -48,7 +84,16 @@
       "mail": "compras@valeo.com",
       "contraseña": "valeo2020",
       "administrador": false,
-      "vendedor": false
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": 6,
@@ -58,7 +103,16 @@
       "mail": "compras@osde.com.ar",
       "contraseña": "osde2019",
       "administrador": false,
-      "vendedor": false
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": 7,
@@ -68,7 +122,16 @@
       "mail": "administracion@deloitte.com",
       "contraseña": "deloitte2020",
       "administrador": false,
-      "vendedor": false
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     },
     {
       "id": 8,
@@ -78,7 +141,35 @@
       "mail": "presupuestos@cono.com",
       "contraseña": "cono2020",
       "administrador": false,
-      "vendedor": false
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
+    },
+    {
+      "id": 9,
+      "name": "ADMINISTRACION",
+      "cuit": "319684963",
+      "razonSocial": "",
+      "mail": "administracion@sistecorp.com",
+      "contraseña": "joju123",
+      "administrador": true,
+      "vendedor": false,
+      "superAdministrador":false,
+      "preferencias": {
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
     }
   ],
   "productos": [

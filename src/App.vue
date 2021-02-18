@@ -21,8 +21,8 @@
             {{logoSesion}}
           </v-icon>
         </v-btn>
-        <!-- OPCIONES DE CUENTA -->
-        <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
+        <!-- MODULO DE CLIENTE -->
+        <v-menu v-if="usuario || vendedorApp || superAdministradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
           <v-btn v-on="on" text rounded>
             Cliente
@@ -44,8 +44,8 @@
               </v-list-item>
             </v-list>     
       </v-menu>
-        <!-- OPCIONES DE USUARIO -->  
-      <v-menu v-if="usuario || administradorApp" open-on-hover app dark offset-y>
+        <!-- MODULO DE COMERCIAL -->  
+      <v-menu v-if="usuario || vendedorApp || superAdministradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
           <v-btn v-on="on" text rounded>
             Comercial
@@ -67,8 +67,8 @@
               </v-list-item>
             </v-list>     
       </v-menu>
-      <!-- OPCIONES DE ADMINISTRADOR -->
-      <v-menu v-if="administradorApp" open-on-hover app dark offset-y>
+      <!-- MODULO DE NEGOCIO -->
+      <v-menu v-if="administradorApp || superAdministradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
           <v-btn v-on="on" text rounded>
             Negocio
@@ -90,8 +90,8 @@
               </v-list-item>
             </v-list>
       </v-menu>
-      <!-- OPCIONES DE VENDEDOR -->
-      <v-menu v-if="vendedorApp || administradorApp" open-on-hover app dark offset-y>
+      <!-- MODULO DE ADMINISTRACION -->
+      <v-menu v-if="administradorApp || superAdministradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
           <v-btn v-on="on" text rounded>
             Administracion
@@ -113,7 +113,8 @@
               </v-list-item>
             </v-list>
       </v-menu>
-      <v-menu v-if="vendedorApp || administradorApp" open-on-hover app dark offset-y>
+      <!-- MODULO DE INVENTARIO -->
+      <v-menu v-if="vendedorApp || superAdministradorApp" open-on-hover app dark offset-y>
         <template v-slot:activator="{ on}">
           <v-btn v-on="on" text rounded>
             Inventario
@@ -195,7 +196,7 @@ export default {
           url:'/pedidoWeb'
         },
         {
-          label:'Solicita cotizacion',
+          label:'Solicitar cotizacion',
           url:'/infoPedido&cotizacion'
         },
         {
@@ -238,7 +239,8 @@ export default {
         }
       ],
       pedidoWeb: false,
-      cantidadProductos: this.$store.state.productosPedido.length
+      cantidadProductos: this.$store.state.productosPedido.length,
+      superAdministradorApp:false
     }
   },
   methods: {
@@ -250,7 +252,7 @@ export default {
     }
   },
   computed:{
-    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor','user','esPedido','productosPedido'])
+    ...mapState(['usuarioRegistrado','administrador','ingreso','vendedor','user','esPedido','productosPedido','superAdministrador'])
   },
   watch:{
     usuarioRegistrado(newValue){
@@ -273,6 +275,9 @@ export default {
     },
     productosPedido(newValue){
       this.cantidadProductos = newValue
+    },
+    superAdministrador(newValue){
+      this.superAdministradorApp = newValue
     }
   }
 }

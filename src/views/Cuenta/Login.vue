@@ -72,14 +72,21 @@ export default {
 					if(res.data){
 						if(res.data[0].contraseña === this.contraseña){
 							this.$store.state.ingreso = true
-							if(res.data[0].administrador === true){
-								this.$store.state.administrador = true
-							}
-							if(res.data[0].vendedor === true){
-								this.$store.state.vendedor = true
-							}
-							if(res.data[0].vendedor === false && res.data[0].administrador === false){
-								this.$store.state.usuarioRegistrado = true
+							if(res.data[0].superAdministrador === true){
+								this.$store.state.superAdministrador = true
+							}else{
+								//empleado administrativo
+								if(res.data[0].administrador === true){
+									this.$store.state.administrador = true
+								}
+								//empleado comercial
+								if(res.data[0].vendedor === true){
+									this.$store.state.vendedor = true
+								}
+								// usuario final
+								if(res.data[0].vendedor === false && res.data[0].administrador === false){
+									this.$store.state.usuarioRegistrado = true
+								}
 							}
 							this.alert = true
 							localStorage.setItem('user', JSON.stringify(res.data[0].mail))

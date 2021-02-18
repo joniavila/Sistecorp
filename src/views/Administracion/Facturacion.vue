@@ -12,6 +12,7 @@
       <v-icon v-if="item.estado === 'ACEPTADO'" small @click="cargarOrden(item)" >
         mdi-sticker-check-outline
       </v-icon>
+      <v-icon @click="verPedido(item)">mdi-eye</v-icon>
     </template>
     </v-data-table>
     <v-alert :color="colorSnackBar" v-model="snackbar" timeout="2000" centered dismissible>{{mensaje}}</v-alert>
@@ -86,6 +87,73 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- DIALOG PARA VER DATOS DEL PEDIDO O PRESUPUESTO -->
+    <v-dialog
+    v-model="dialog2"
+      persistent
+      max-width="500"
+      dark>
+    
+        <v-card v-if="pedidoAver">
+        <v-card-title class="headline">
+            {{pedidoAver.solicitud}} NRO {{ pedidoAver.id}}
+        </v-card-title>
+        <v-card-text class="primary ">
+        <v-card-title>DATOS CLIENTE</v-card-title>
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title>Mail Cliente: {{pedidoAver.datosPedido.usuarioRegistrado}}</v-list-item-title>
+                    <v-list-item-title>Razon Social: {{pedidoAver.datosPedido.razonSocial}}</v-list-item-title>
+                    <v-list-item-title>CUIT: {{pedidoAver.datosPedido.cuit}}</v-list-item-title>
+                    <v-list-item-title>Forma de Pago: {{pedidoAver.datosPedido.formaPago}}</v-list-item-title>
+                    <v-list-item-title>Forma de Entrega: {{pedidoAver.datosPedido.formaEntrega}}</v-list-item-title>
+                    <v-list-item-title>Fecha Estimada de Entrega: {{pedidoAver.datosPedido.fechaEntrega}}</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+        <v-card-title>PRODUCTOS</v-card-title>
+            <template>
+                <v-simple-table dense>
+                    <template v-slot:default>
+                    <thead>
+                        <tr>
+                        <th class="text-left">
+                            PRODUCTO
+                        </th>
+                        <th class="text-left">
+                            CANTIDAD
+                        </th>
+                        <th class="text-left">
+                            PRECIO + IVA
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                        v-for="item in pedidoAver.productos"
+                        :key="item.id"
+                        >
+                        <td>{{ item.NOMBRE }}</td>
+                        <td>{{ item.CANTIDAD }}</td>
+                        <td>{{ item.PRECIO }}</td>
+                        </tr>
+                    </tbody>
+                    </template>
+                </v-simple-table>
+            </template>
+            <v-card-title v-if="pedidoAver.estado != 'FACTURADO'">MONTO A FACTURAR: $ {{montoFactura}} </v-card-title>   
+            <v-card-title v-else>MONTO FACTURADO: ${{montoFactura}} </v-card-title>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            @click="hideDialog()"
+          >
+            Aceptar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 </div>
 </template>
 
@@ -147,7 +215,9 @@ export default {
         dialog: false,
         pedidoAFacturar: '',
         fechaActual: null,
-        montoFactura: 0
+        montoFactura: 0,
+        dialog2:false,
+        pedidoAver: '',
     }
 },
 created(){
@@ -237,6 +307,18 @@ methods:{
             })
         }
     },
+    verPedido(item){
+        this.dialog2 = true,
+        this.pedidoAver = item
+        if(this.pedidoAver.monto){
+            this.montoFactura = this.pedidoAver.monto*1.21
+        }
+    },
+    hideDialog(){
+        this.dialog2 = false
+        this.pedidoAver = ''
+        this.montoFactura = 0
+    }
 }
 }
 </script>

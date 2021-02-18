@@ -16,18 +16,18 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/Login.vue')
+      component: () => import('./views/Cuenta/Login.vue')
     },
     {
       path: '/signup',
       name: 'signup',
-      component: () => import('./views/Signup.vue')
+      component: () => import('./views/Cuenta/Signup.vue')
     },
     //INVENTARIO
     {
       path: '/productos',
       name: 'productos',
-      component: () => import('./views/ProductosInventario.vue')
+      component: () => import('./views/Inventario/ProductosInventario.vue')
     },
     //COMERCIAL
     {
