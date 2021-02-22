@@ -35,7 +35,7 @@
 		<v-date-picker v-model="fechaEntrega" no-title @input="menu2 = false"></v-date-picker>
 	</v-menu>
 </v-col>
-<div v-if="!esPedidoWeb">
+<div>
 <v-col cols="12" sm="6" md="8">
 	<v-btn
 		color="primary"
@@ -47,7 +47,7 @@
 <v-col cols="12" sm="6" md="8">
     <v-text-field
       v-model="nombre"
-      :counter="10"
+      :counter="15"
       label="Nombre de contacto"
       required
     ></v-text-field>
@@ -116,7 +116,7 @@ import {mapState} from 'vuex'
 export default {
 data(){ 
 	return{
-	esPedidoWeb: false,
+	esPedidoWeb: this.$store.state.esPedido,
 	date: new Date().toISOString().substr(0, 10),
 	fechaEntrega: '',
 	menu2: false,
@@ -136,19 +136,16 @@ data(){
 	}
 },
 mounted(){
-	this.esPedidoWeb = this.$store.state.esPedido
+	this.datosUsuarioRegistrado = this.$store.state.user
+	// caso que el usuario vuelva para modificar los datos del pedido
 	if(this.$store.state.datosPedidoNuevo){
 		this.pedidoGuardado = this.$store.state.datosPedidoNuevo
-	}
-	this.datosUsuarioRegistrado = this.$store.state.user
-	if(this.pedidoGuardado){
 		this.fechaEntrega= this.pedidoGuardado.fechaEntrega
 		this.nombre = this.pedidoGuardado.nombreContacto
 		this.email= this.pedidoGuardado.mailContacto
 		this.formaDePagoSeleccionada = this.pedidoGuardado.formaPago
 		this.formaDeEntregaSeleccionada = this.pedidoGuardado.formaEntrega
 	}
-	this.$store.state.esPedido = false
 },
 computed:{
     ...mapState(['datosPedidoNuevo','esPedido','user','formasPagoOpcionales','formasDeEntregaOpcionales'])
@@ -156,11 +153,6 @@ computed:{
 watch:{
     datosPedidoNuevo(newValue){
 		this.pedidoGuardado = newValue
-	},
-	esPedido(newValue){
-		if(newValue){
-			this.esPedidoWeb = newValue
-		}
 	},
 	user(newValue){
 		this.datosUsuarioRegistrado = newValue

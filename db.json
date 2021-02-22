@@ -9,7 +9,7 @@
       "contraseña": "jonas123",
       "administrador": true,
       "vendedor": true,
-      "superAdministrador":true,
+      "superAdministrador": true,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -28,7 +28,7 @@
       "contraseña": "mati123",
       "administrador": true,
       "vendedor": true,
-      "superAdministrador":true,
+      "superAdministrador": true,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -47,7 +47,7 @@
       "contraseña": "user123",
       "administrador": false,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -63,10 +63,10 @@
       "cuit": "319684963",
       "razonSocial": "",
       "mail": "ventas@sistecorp.com",
-      "contraseña": "joju123",
+      "contraseña": "ventas",
       "administrador": false,
       "vendedor": true,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -85,7 +85,7 @@
       "contraseña": "valeo2020",
       "administrador": false,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -104,7 +104,7 @@
       "contraseña": "osde2019",
       "administrador": false,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -123,7 +123,7 @@
       "contraseña": "deloitte2020",
       "administrador": false,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -142,7 +142,7 @@
       "contraseña": "cono2020",
       "administrador": false,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
@@ -161,9 +161,27 @@
       "contraseña": "joju123",
       "administrador": true,
       "vendedor": false,
-      "superAdministrador":false,
+      "superAdministrador": false,
       "preferencias": {
         "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial",
+        "notificaciones": true,
+        "promociones": true,
+        "necesidades": false,
+        "productosNecesidades": []
+      }
+    },
+    {
+      "id": 10,
+      "name": "Comprador Stoller",
+      "cuit": "1324657895",
+      "razonSocial": "STOLLER SA",
+      "mail": "compras@stoller.com",
+      "contraseña": "stoller123",
+      "administrador": false,
+      "vendedor": false,
+      "preferencias": {
+        "formaPago": "Cheque a 60 dias",
         "formaEntrega": "Retiro por oficina comercial",
         "notificaciones": true,
         "promociones": true,
@@ -3780,6 +3798,99 @@
       "estado": "FACTURADO",
       "solicitud": "PEDIDO",
       "id": 4
+    },
+    {
+      "datosPedido": {
+        "fecha": "2021-02-18",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-02-19",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "cuit": "37094451",
+        "razonSocial": "Jonas Avila",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 54,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 285,
+          "CANTIDADSOLICITADA": "3",
+          "PRECIO": "651"
+        }
+      ],
+      "monto": 2153,
+      "estado": "ACEPTADO",
+      "solicitud": "PEDIDO",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "datosPedido": {
+        "fecha": "2021-02-18",
+        "usuarioRegistrado": "compras@stoller.com",
+        "fechaEntrega": "2021-02-19",
+        "nombreContacto": "Comprador Stoller",
+        "mailContacto": "compras@stoller.com",
+        "cuit": "1324657895",
+        "razonSocial": "STOLLER SA",
+        "formaPago": "Cheque a 60 dias",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "producto nuevo",
+          "CATEGORIA": "REDES",
+          "CANTIDAD": "1"
+        }
+      ],
+      "monto": "SIN COTIZAR",
+      "estado": "PENDIENTE",
+      "solicitud": "COTIZACION",
+      "observaciones": "SE NECESITA CON URGENCIA COTIZACION"
+    },
+    {
+      "id": 7,
+      "datosPedido": {
+        "fecha": "2021-02-18",
+        "usuarioRegistrado": "compras@valeo.com",
+        "fechaEntrega": "2021-02-20",
+        "nombreContacto": "compras",
+        "mailContacto": "compras@valeo.com",
+        "cuit": "309869642",
+        "razonSocial": "Cibie Argentina S.A",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "PRODUCTO X",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "1"
+        },
+        {
+          "id": 1,
+          "NOMBRE": "PRODUCTO Y",
+          "CATEGORIA": "ENERGIA",
+          "CANTIDAD": "2"
+        }
+      ],
+      "monto": "SIN COTIZAR",
+      "estado": "PENDIENTE",
+      "solicitud": "COTIZACION",
+      "observaciones": ""
     }
   ],
   "facturas": [

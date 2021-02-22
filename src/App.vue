@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <v-btn
         v-show="!ingreso"
-        v-for="link in links"
+        v-for="link in home"
         :key="`${link.label}-header-link`"
         text
         rounded
@@ -29,11 +29,28 @@
           </v-btn>
         </template>
             <v-list>
-              <v-list-item
-                v-for="(cuenta,i) in linksCuenta"
+              <!-- MODULO DE CLIENTES PARA VENDEDORES -->
+              <div v-if="vendedorApp">
+               <v-list-item 
+                v-for="(vendedor,i) in moduloClienteVendedor"
                 :key="i"
               >
               <v-list-item-title >
+                <v-btn
+                :to="vendedor.url"
+                text
+                rounded>
+                {{ vendedor.label }}
+                </v-btn>
+                </v-list-item-title>
+               </v-list-item>
+              </div>
+              <div v-else>
+              <v-list-item
+                v-for="(cuenta,i) in moduloCliente"
+                :key="i"
+              >
+              <v-list-item-title>
                 <v-btn
                 :to="cuenta.url"
                 text
@@ -42,6 +59,7 @@
                 </v-btn>
                 </v-list-item-title>
               </v-list-item>
+              </div>
             </v-list>     
       </v-menu>
         <!-- MODULO DE COMERCIAL -->  
@@ -53,7 +71,7 @@
         </template>
             <v-list>
               <v-list-item
-                v-for="(user,i) in linksUsuario"
+                v-for="(user,i) in moduloComercial"
                 :key="i"
               >
               <v-list-item-title >
@@ -76,7 +94,7 @@
         </template>
             <v-list>
               <v-list-item
-                v-for="(admin,i) in linksAdministracion"
+                v-for="(admin,i) in moduloNegocio"
                 :key="i"
               >
               <v-list-item-title >
@@ -99,7 +117,7 @@
         </template>
             <v-list>
               <v-list-item
-                v-for="(comer,i) in linksVendedor"
+                v-for="(comer,i) in moduloAdministracion"
                 :key="i"
               >
               <v-list-item-title >
@@ -122,7 +140,7 @@
         </template>
             <v-list>
               <v-list-item
-                v-for="(comer2,i) in linksVendedor2"
+                v-for="(comer2,i) in moduloInventario"
                 :key="i"
               >
               <v-list-item-title >
@@ -145,7 +163,7 @@
     <v-footer color="primary lighten-1" padless>
       <v-layout justify-center wrap>
         <v-flex primary lighten-2 py-4 text-center white--text xs12>
-          {{ new Date().getFullYear() }} <strong></strong>
+          DINAMIC0 <v-icon large>mdi-autorenew</v-icon>{{ new Date().getFullYear() }} <strong></strong>
         </v-flex>
       </v-layout>
     </v-footer>
@@ -166,7 +184,7 @@ export default {
       ingresoApp:false,
       administradorApp:false,
       vendedorApp: false,
-      links: [
+      home: [
         {
           label: 'Home',
           url: '/'
@@ -180,7 +198,7 @@ export default {
           url: '/signup'
         }
       ],
-      linksCuenta:[
+      moduloCliente:[
         {
           label:'Datos Cuenta',
           url:'/datosCuentaUsuario'
@@ -188,9 +206,19 @@ export default {
         {
           label:'Preferencias',
           url: '/preferencias'
+        },
+      ],
+      moduloClienteVendedor:[
+        {
+          label:'Registrar Cliente',
+          url:'registroCliente',
+        },
+        {
+          label:'Promociones',
+          url:'promociones'
         }
       ],
-      linksUsuario:[
+      moduloComercial:[
         {
           label:'Crear pedido Web',
           url:'/pedidoWeb'
@@ -204,7 +232,7 @@ export default {
           url: '/pedidos'
         }
       ],
-      linksVendedor:[
+      moduloAdministracion:[
         {
           label: 'Facturacion',
           url:'/facturacion'
@@ -217,8 +245,12 @@ export default {
           label:'Historial de Presupuestos',
           url:'/historial'
         },
+        {
+          label:'Compras a Proveedor',
+          url:'/compras'
+        },
       ],
-      linksVendedor2:[
+      moduloInventario:[
         {
           label: 'MarkUp',
           url:'/markup'
@@ -228,7 +260,7 @@ export default {
           url:'/productos'
         },
       ],
-      linksAdministracion:[
+      moduloNegocio:[
         {
             label: 'Dashboard',
             url: '/dashboard'

@@ -78,7 +78,6 @@ export default {
                     throw res
                 }
             }).then( ()=> {
-                // routeo
                 this.$router.push('/pedidos')
             })
         }

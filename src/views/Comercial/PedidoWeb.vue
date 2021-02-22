@@ -2,17 +2,18 @@
 <div>
     <!-- CARRITO DE COMPRAS  -->
   <v-speed-dial
-      style="margin-left:20px"
+      style="margin-left:50%"
       direction="top"
       :open-on-hover="true"
-      transition="slide-x-transition"
-      origin="200px 50px"
+      transition="slide-y-transition"
+      origin="0px 0px"
       fixed
       bottom
       left
+      :draggable="true"
     >
       <template v-slot:activator>
-          <v-btn class="primary"
+          <v-btn class="primary lighten-1"
             fab>
             <v-icon>
               mdi-cart-variant 
@@ -20,11 +21,13 @@
             ({{productosSeleccionados.length}})
           </v-btn>
       </template>
-          <v-list dark>
-            <v-list-item v-for="(prod,o) in productosSeleccionados" :key="o">
+          <v-list color="primary lighten-1">
+            <v-list-item v-for="(prod,o) in productosSeleccionados" :key="o" dense>
               <v-list-item-title >
-                {{prod.NOMBRE}} ({{prod.CANTIDAD}})
+                {{prod.NOMBRE}} [Cantidad:{{prod.CANTIDADSOLICITADA}}]
               </v-list-item-title>
+              <v-icon @click="eliminarProductoCarrito(prod)"
+              dark >mdi-delete</v-icon>
             </v-list-item>
           </v-list>
   </v-speed-dial>
@@ -154,6 +157,7 @@
       v-model="agregar"
       persistent
       max-width="450"
+      dark
     >
       <v-card>
         <v-card-title >
@@ -166,15 +170,13 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="red darken-1"
-            text
+            color="error"
             @click="hideDialog()"
           >
             Cancelar
           </v-btn>
           <v-btn
-            color="green darken-1"
-            text
+            color="success"
             @click="agregarProducto()"
             :disabled="!cantidad"
           >
@@ -217,14 +219,13 @@ data(){
     }
 },
 mounted(){
-    this.$store.state.esPedido = true
     this.categoriaSeleccionada = 'MICRO'
     axios.get(`${baseURL}?q=MICRO`).then(res => {
         if(res.status===200){
             this.listaProducto = res.data
             this.cargando = false
     }})
-    axios.get(BaseURL2).then(res => { this.nroPedido = res.data.length+1})
+    axios.get(BaseURL2+`?_sort=id&_order=desc`).then(res => { this.nroPedido = res.data[0].id+1})
 },
 computed:{
   ...mapState(['categorias','productosPedido','esPedido']),
@@ -236,6 +237,9 @@ watch:{
     categorias(newValue){
         this.categoriasProductos = newValue
     },
+    productosPedido(newValue){
+      this.productosSeleccionados = newValue
+    }
 },
 methods:{
     async cambiarCategoria(categoria){
@@ -288,7 +292,7 @@ methods:{
       if(this.cantidad < parseInt(this.productoAagregar.CANTIDAD)){
       this.agregar = false
       this.productosFaltantes = false
-      this.productosSeleccionados.push(this.productoAagregar)
+      // this.productosSeleccionados.push(this.productoAagregar)
       this.$store.state.productosPedido.push({
         id:this.productoAagregar.id,
         NOMBRE:this.productoAagregar.NOMBRE,
@@ -309,12 +313,17 @@ methods:{
     },
     finalizarPedido(){
       if(this.productosSeleccionados.length > 0){
+        this.$store.state.esPedido = true
         this.$router.push('/infoPedido&cotizacion')
       }else{
         this.productosFaltantes = true
       }
+    },
+    eliminarProductoCarrito(item){
+      var indexItem = this.productosSeleccionados.indexOf(item)
+      this.productosSeleccionados.splice(indexItem,1)
     }
-}
+},
 }
 </script>
 

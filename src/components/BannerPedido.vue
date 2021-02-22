@@ -17,8 +17,7 @@
       </v-list-item-content>
     </v-list-item>
       <v-btn depressed
-        text
-        color="warning"
+        color="success"
         @click="modificarPedido"
         small
       >

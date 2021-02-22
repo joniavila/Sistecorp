@@ -178,13 +178,13 @@ export default {
                     productosNecesidades: this.productosNecesidades
                 }
             }
-
             await axios.put(baseURL+`/${this.datosCliente.id}`, usuario).then(res =>{
                 if(res.status === 200){
                     this.mensaje= "PREFRENCIAS MODIFICADAS CON EXITO"
                     this.colorSnackBar = 'success'
                     this.snackbar = true
                     this.datosCliente = res.data
+                    this.$store.state.user = res.data
                     this.formaDePagoSeleccionada = res.data.preferencias.formaPago
                     this.formaDeEntregaSeleccionada = res.data.preferencias.formaEntrega
                     this.promociones = res.data.preferencias.promociones

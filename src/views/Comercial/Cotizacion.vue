@@ -54,8 +54,10 @@
         </v-card-actions>
     </v-card>
 </v-dialog>
-<v-alert type="error" v-if="errorPedido" v-model="errorPedido" dismissible>{{mensajeError}}</v-alert>
-<v-alert type="success" v-if="succesPedido">PEDIDO GUARDADO CON EXITO, LO ESTAREMOS CONTACTANDO A LA BREVEDAD</v-alert>
+<v-snackbar v-model="snackbar" :timeout="2000" centered :color="colorSnackBar">
+    {{mensaje}}
+</v-snackbar>
+
 </v-card>
 </template>
 
@@ -75,15 +77,15 @@ data(){
         productos:[],
         nroPedido: '',
         mostrarBanner:true,
-        errorPedido:false,
-        succesPedido:false,
-        mensajeError: null,
         modal:false,
-        observaciones:''
+        observaciones:'',
+        snackbar: false,
+        colorSnackBar: '',
+        mensaje:''
     }
 },
 mounted(){
-    axios.get(BaseURL).then(res => { this.nroPedido = res.data.length+1})
+    axios.get(BaseURL+`?_sort=id&_order=desc`).then(res => { this.nroPedido = res.data[0].id+1})
     if(this.errorPedido){
         this.hide_alert();
     }
@@ -119,19 +121,21 @@ methods:{
             solicitud:'COTIZACION',
             observaciones: this.observaciones
         }
-        await axios.post(BaseURL,pedidoNuevo).then( res => {
-            if(res.status === 201 || res.status === 200 ){
-                this.succesPedido = true
+        await axios.post(BaseURL,pedidoNuevo).then( response => {
+            if(response.status === 201 || response.status === 200 ){
+                this.snackbar= true,
+                this.colorSnackBar= 'success',
+                this.mensaje='PEDIDO DE COTIZACION CARGADO CON EXITO'  
                 pedidoNuevo = {}
-                // routeo
-                window.setInterval(() => {
-                    this.$router.push('/pedidos')
-                }, 4000)
             }else{
-                this.mensajeError = "ERROR AL CARGAR PEDIDO, POR FAVOR INTENTE NUEVAMENTE"
-                this.errorPedido = !this.errorPedido
-                throw res
+                this.snackbar= true,
+                this.colorSnackBar= 'error',
+                this.mensaje='HUBO UN ERROR AL CARGAR EL PEDIDO DE COTIZACION, INTENTE NUEVAMENTE LUEGO'  
             }
+        }).then(()=>{
+            // routeo
+            this.$router.push('/pedidos')
+           
         })
     },
     hide_alert() {

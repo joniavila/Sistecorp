@@ -58,12 +58,13 @@
         </v-form>
       </v-col>
     </v-row>
-    <v-alert :color="colorSnackBar" v-model="snackbar" :timeout="2000" centered dismissible>{{mensaje}}</v-alert>
+    <v-alert :color="colorSnackBar" v-model="snackbar" :timeout="2000" centered >{{mensaje}}</v-alert>
   </v-container>
 </template>
 
 <script>
 import axios from 'axios'
+import {mapState} from 'vuex'
 
 const baseURL = 'http://localhost:3000/usuarios'
 export default {
@@ -108,7 +109,8 @@ export default {
     telRules: [
       value => !!value || 'Debe ingresar un numero de Telefono'
     ],
-    listaUsuarios: []
+    listaUsuarios: [],
+    vendedorApp: false
   }),
   async created(){
       try{
@@ -117,6 +119,15 @@ export default {
       }catch(e){
         alert(e)
       }
+      window.setInterval(() => {
+        this.snackbar = false
+    }, 3000)
+  },
+  computed:{
+    ...mapState(['vendedor'])
+  },
+  mounted(){
+    this.vendedorApp = this.$store.state.vendedor
   },
   methods: {
     resetForm() {
@@ -138,7 +149,8 @@ export default {
         mail: this.email,
         contraseña:this.contraseña,
         administrador:false,
-        vendedor:false
+        vendedor:false,
+        superAdministrador:false,
       }
       try{
         if(user){
@@ -155,7 +167,11 @@ export default {
               this.snackbar = true
             }
           }).then( () => {
-            this.$router.push('/login')
+            if(this.vendedorApp){
+              this.resetForm()
+            }else{
+              this.$router.push('/login')
+            }
           })
           
         }
