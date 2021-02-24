@@ -2,17 +2,17 @@
   <div>
   <v-data-table :headers="headers" :items="pedidos" class="elevation-1"
     :footer-props="{'items-per-page-text':'Pedidos por pagina'}"
-    no-data-text = 'NO TIENE UN HISTORIAL DE PEDIDOS REGISTRADOS'>
+    no-data-text = 'NO EXISTEN PEDIDOS CONFIRMADOS SIN FACTURAR'>
     <template v-slot:top>
     <v-toolbar flat>
-        <v-toolbar-title>PEDIDOS Y COTIZACIONES</v-toolbar-title>
+        <v-toolbar-title>PEDIDOS Y COTIZACIONES CONFIRMADAS</v-toolbar-title>
     </v-toolbar>
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon v-if="item.estado === 'ACEPTADO'" small @click="cargarOrden(item)" >
+      <v-icon @click="verPedido(item)">mdi-eye</v-icon>
+      <v-icon @click="cargarOrden(item)" >
         mdi-sticker-check-outline
       </v-icon>
-      <v-icon @click="verPedido(item)">mdi-eye</v-icon>
     </template>
     </v-data-table>
     <v-alert :color="colorSnackBar" v-model="snackbar" timeout="2000" centered dismissible>{{mensaje}}</v-alert>
@@ -23,11 +23,11 @@
       max-width="500"
     >
     <v-card v-if="pedidoAFacturar" dark>
-        <v-card-title class="headline">
+        <v-card-title style="color:red">
           Desea facturar dicha solicitud ?
         </v-card-title>
-        <v-card-text class="primary">
-        <v-card-title>DATOS CLIENTE</v-card-title>
+        <v-card-text>
+        <v-card-title style="color:#6aaaff">DATOS CLIENTE</v-card-title>
             <v-list-item>
                 <v-list-item-content>
                     <v-list-item-title>Mail Cliente: {{pedidoAFacturar.datosPedido.usuarioRegistrado}}</v-list-item-title>
@@ -38,7 +38,7 @@
                     <v-list-item-title>Fecha Estimada de Entrega: {{pedidoAFacturar.datosPedido.fechaEntrega}}</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
-            <v-card-title>PRODUCTOS</v-card-title>
+            <v-card-title style="color:#6aaaff">PRODUCTOS</v-card-title>
             <template>
                 <v-simple-table dense>
                     <template v-slot:default>
@@ -61,14 +61,14 @@
                         :key="item.id"
                         >
                         <td>{{ item.NOMBRE }}</td>
-                        <td>{{ item.CANTIDAD }}</td>
+                        <td>{{ item.CANTIDADSOLICITADA }}</td>
                         <td>{{ item.PRECIO }}</td>
                         </tr>
                     </tbody>
                     </template>
                 </v-simple-table>
             </template>
-            <v-card-title>MONTO A FACTURAR: $ {{montoFactura}} </v-card-title>   
+            <v-card-title style="color:red">MONTO A FACTURAR: $ {{parseInt(montoFactura)}} </v-card-title>   
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -95,11 +95,11 @@
       dark>
     
         <v-card v-if="pedidoAver">
-        <v-card-title class="headline">
+        <v-card-title style="color:#6aaaff">
             {{pedidoAver.solicitud}} NRO {{ pedidoAver.id}}
         </v-card-title>
-        <v-card-text class="primary ">
-        <v-card-title>DATOS CLIENTE</v-card-title>
+        <v-card-text class="">
+        <v-card-title style="color:#6aaaff">DATOS CLIENTE</v-card-title>
             <v-list-item>
                 <v-list-item-content>
                     <v-list-item-title>Mail Cliente: {{pedidoAver.datosPedido.usuarioRegistrado}}</v-list-item-title>
@@ -110,7 +110,7 @@
                     <v-list-item-title>Fecha Estimada de Entrega: {{pedidoAver.datosPedido.fechaEntrega}}</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
-        <v-card-title>PRODUCTOS</v-card-title>
+        <v-card-title style="color:#6aaaff">PRODUCTOS</v-card-title>
             <template>
                 <v-simple-table dense>
                     <template v-slot:default>
@@ -133,14 +133,17 @@
                         :key="item.id"
                         >
                         <td>{{ item.NOMBRE }}</td>
-                        <td>{{ item.CANTIDAD }}</td>
+                        <td>{{ item.CANTIDADSOLICITADA }}</td>
                         <td>{{ item.PRECIO }}</td>
                         </tr>
                     </tbody>
                     </template>
                 </v-simple-table>
             </template>
-            <v-card-title v-if="pedidoAver.estado != 'FACTURADO'">MONTO A FACTURAR: $ {{montoFactura}} </v-card-title>   
+            <v-card-title v-if="pedidoAver.estado != 'FACTURADO'"
+            style="color:#6aaaff">MONTO A FACTURAR: $ {{parseInt(montoFactura)}}
+            <v-card-subtitle style="color:#6aaaff">(monto con IVA incluido)</v-card-subtitle>    
+            </v-card-title>   
             <v-card-title v-else>MONTO FACTURADO: ${{montoFactura}} </v-card-title>
         </v-card-text>
         <v-card-actions>
@@ -234,7 +237,7 @@ watch:{
     }
 },
 mounted(){
-    axios.get(BaseURL).then(res => {
+    axios.get(BaseURL+'?q=ACEPTADO').then(res => {
         this.pedidos = res.data
     })
     this.usuarioRegistrado = this.$store.state.user
@@ -264,7 +267,7 @@ methods:{
                     nombreContacto: this.pedidoAFacturar.datosPedido.nombreContacto
                 },
                 formaDePago: this.pedidoAFacturar.datosPedido.formaPago,
-                monto: this.montoFactura,
+                monto: parseFloat(this.montoFactura).toFixed(2),
                 productos: this.pedidoAFacturar.productos,
                 usuarioFacturante: this.usuarioRegistrado
             }
@@ -280,31 +283,30 @@ methods:{
                     this.colorSnackBar = 'error'
                     this.snackbar = true
                 }
-            }).then(()=>{ 
+            }).then(async()=>{ 
                 // CAMBIA LA CONDICION DE ACEPTADO A FACTURADO
-                axios.put(BaseURL+`/${this.pedidoAFacturar.id}`,{      
+                await axios.put(BaseURL+`/${this.pedidoAFacturar.id}`,{      
                     datosPedido: this.pedidoAFacturar.datosPedido,
                     productos: this.pedidoAFacturar.productos,
-                    monto: this.pedidoAFacturar.monto,
+                    monto: parseFloat(this.pedidoAFacturar.monto).toFixed(2),
                     estado: 'FACTURADO',
                     solicitud:'PEDIDO'})
-                }).then( ()=>{
-                // ACTUALIZA LA LISTA DE PEDIDOS
-                axios.get(BaseURL).then(res => {
-                    this.pedidos = res.data
-                })
-            }).then( ()=> {
+            }).then( async()=> {
                 //SE DESCUENTAN LOS STOCKS CORRESPONDIENTES
                 this.pedidoAFacturar.productos.forEach(element => {
-                    axios.put(`http://localhost:3000/productos/${element.id}`,{
-                        NOMBRE:element.NOMBRE,
-                        CATEGORIA:element.CATEGORIA,
-                        PRECIO:element.PRECIO,
-                        PROVEEDOR:element.PROVEEDOR,
-                        CANTIDAD: (element.CANTIDADDISPONIBLE-element.CANTIDADSOLICITADA)
-                    })
+                    this.disminuirStock(element)
                 });
+            }).then( async()=>{
+                // ACTUALIZA LA LISTA DE PEDIDOS
+                await axios.get(BaseURL+'?q=ACEPTADO').then(res => {
+                    this.pedidos = res.data
+                })
             })
+            // .then(async()=>{
+            //     this.pedidoAFacturar.productos.forEach(element => {
+            //         this.publicarCompra(element)    
+            //     });
+            // })
         }
     },
     verPedido(item){
@@ -318,6 +320,25 @@ methods:{
         this.dialog2 = false
         this.pedidoAver = ''
         this.montoFactura = 0
+    },
+    // publicarCompra(producto){
+    //     var fecha = new Date().toISOString().substr(0, 10)
+    //     axios.post(`http://localhost:3000/compras`,{
+    //         FECHA: fecha,
+    //         NOMBRE:producto.NOMBRE,
+    //         PROVEEDOR:producto.PROVEEDOR,
+    //         PRECIO:producto.PRECIO,
+    //         CANTIDAD:producto.CANTIDADSOLICITADA
+    //     })
+    // },
+    disminuirStock(producto){
+         axios.put(`http://localhost:3000/productos/${producto.id}`,{
+            NOMBRE:producto.NOMBRE,
+            CATEGORIA:producto.CATEGORIA,
+            PRECIO:producto.PRECIO,
+            PROVEEDOR:producto.PROVEEDOR,
+            CANTIDAD: (producto.CANTIDADDISPONIBLE-producto.CANTIDADSOLICITADA)
+        })
     }
 }
 }

@@ -204,24 +204,21 @@
       "CATEGORIA": "MICRO",
       "PRECIO": "100",
       "CANTIDAD": 54,
-      "id": 61,
-      "PROVEEDOR": "AIR"
+      "id": 61
     },
     {
       "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
       "CATEGORIA": "MICRO",
       "PRECIO": "651",
       "CANTIDAD": 285,
-      "id": 72,
-      "PROVEEDOR": "AIR"
+      "id": 72
     },
     {
       "NOMBRE": "CARGADOR NOTEBOOK - UNIVERSAL 220V - 120W - 1684 - CH003 - 2604",
       "CATEGORIA": "ENERGIA",
       "PRECIO": "100",
       "CANTIDAD": 97,
-      "id": 74,
-      "PROVEEDOR": "AIR"
+      "id": 74
     },
     {
       "NOMBRE": "PATCHCORD CAT.5E - 0.6M GLC NEGRO",
@@ -252,8 +249,7 @@
       "CATEGORIA": "IMPRESION",
       "PRECIO": "104",
       "CANTIDAD": 128,
-      "id": 96,
-      "PROVEEDOR": "AIR"
+      "id": 96
     },
     {
       "NOMBRE": "CARGADOR C/SELECTOR 70W 15V/24V",
@@ -300,8 +296,7 @@
       "CATEGORIA": "IMPRESION",
       "PRECIO": "106",
       "CANTIDAD": 143,
-      "id": 114,
-      "PROVEEDOR": "AIR"
+      "id": 114
     },
     {
       "NOMBRE": "TONER SAMSUNG D104S ALTERNATIVO",
@@ -324,8 +319,7 @@
       "CATEGORIA": "IMPRESION",
       "PRECIO": "100",
       "CANTIDAD": 140,
-      "id": 121,
-      "PROVEEDOR": "AIR"
+      "id": 121
     },
     {
       "NOMBRE": "CABLE  USB 2.0 M a   MINI USB  5 PINES 1M - CAMIUS1 NISUTA",
@@ -408,12 +402,11 @@
       "id": 143
     },
     {
-      "NOMBRE": "CARTUCHO ALTERNATIVO HP 662XL COLOR",
+      "NOMBRE": "CARTUCHO ALTERNATIVO  HP 662XL COLOR",
       "CATEGORIA": "IMPRESION",
       "PRECIO": "182",
       "CANTIDAD": 96,
-      "id": 144,
-      "PROVEEDOR": "AIR"
+      "id": 144
     },
     {
       "NOMBRE": "CARTUCHO ALTERNATIVO EPSON T195/196 4 AMARILLO",
@@ -500,8 +493,7 @@
       "CATEGORIA": "ENERGIA",
       "PRECIO": "50",
       "CANTIDAD": 52,
-      "id": 166,
-      "PROVEEDOR": "AIR"
+      "id": 166
     },
     {
       "NOMBRE": "CAJA ESTANCA PLASTICA IP65 115x115x65",
@@ -668,8 +660,7 @@
       "CATEGORIA": "MICRO",
       "PRECIO": "306",
       "CANTIDAD": 91,
-      "id": 223,
-      "PROVEEDOR": "AIR"
+      "id": 223
     },
     {
       "NOMBRE": "CABLE HDMI 3 MTS BULK NS-CAHDMI3 FILTRO INDUCTIVO",
@@ -1288,7 +1279,7 @@
       "id": 761
     },
     {
-      "NOMBRE": "JACK RJ45 CAT6A FURUKAWA GIGALAN AUGMENTED BLANCO",
+      "NOMBRE": ".JACK RJ45 CAT6A FURUKAWA GIGALAN AUGMENTED BLANCO",
       "CATEGORIA": "REDES",
       "PRECIO": "174",
       "PROVEEDOR": "MASNET",
@@ -3693,12 +3684,11 @@
       "id": 3518
     },
     {
-      "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS FOX-TEX 200ML",
+      "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
       "CATEGORIA": "OTROS",
       "PRECIO": "1",
       "CANTIDAD": 90,
-      "id": 3519,
-      "PROVEEDOR": "AIR"
+      "id": 3519
     }
   ],
   "pedidos": [
@@ -4148,7 +4138,7 @@
       "monto": 12.1,
       "productos": [
         {
-          "id": 3519.00,
+          "id": 3519,
           "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
           "CATEGORIA": "OTROS",
           "CANTIDADDISPONIBLE": "100",
@@ -4177,7 +4167,7 @@
         "nombreContacto": "compras"
       },
       "formaDePago": "Contado Efectivo",
-      "monto": 423.50,
+      "monto": 423.5,
       "productos": [
         {
           "id": 74,
@@ -4381,7 +4371,7 @@
         "nombreContacto": "Comprador Stoller"
       },
       "formaDePago": "Cheque a 60 dias",
-      "monto": 1341.89,
+      "monto": 1341.8899999999999,
       "productos": [
         {
           "id": 181,
@@ -4440,7 +4430,7 @@
         "nombreContacto": "Jonas Avila"
       },
       "formaDePago": "Tarjeta",
-      "monto": 1795.64,
+      "monto": 1795.6399999999999,
       "productos": [
         {
           "id": 148,
@@ -4516,6 +4506,14 @@
       "PRECIO": "884",
       "CANTIDAD": "1",
       "id": 3
+    },
+    {
+      "FECHA": "2021-02-24",
+      "NOMBRE": "PATCHCORD CAT.5E - 2.0M GRIS KELYX",
+      "PROVEEDOR": "MASNET",
+      "PRECIO": "300",
+      "CANTIDAD": "1",
+      "id": 4
     }
   ]
 }

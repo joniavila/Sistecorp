@@ -149,7 +149,8 @@ methods:{
                 CATEGORIA:this.selected[0].CATEGORIA,
                 CANTIDADDISPONIBLE:this.selected[0].CANTIDAD,
                 CANTIDADSOLICITADA:this.cantidad,
-                PRECIO: this.selected[0].PRECIO
+                PRECIO: this.selected[0].PRECIO,
+                PROVEEDOR:this.selected[0].PROVEEDOR
             })
             this.selected = []
             this.cantidad = ''

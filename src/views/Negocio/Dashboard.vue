@@ -39,7 +39,7 @@
       </v-btn>
     </v-snackbar>
     <v-divider></v-divider>
-    <h2>PRODUCTOS FALTANTES</h2>
+    <h2>PRODUCTOS FALTANTES (10 unidades o menos)</h2>
     <div>
       <v-data-table :headers="headers" :items="productos" class="elevation-1"
       :footer-props="{'items-per-page-text':'Productos por pagina'}"

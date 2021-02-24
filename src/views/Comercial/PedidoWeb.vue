@@ -299,7 +299,8 @@ methods:{
         CATEGORIA:this.productoAagregar.CATEGORIA,
         CANTIDADDISPONIBLE:this.productoAagregar.CANTIDAD,
         CANTIDADSOLICITADA:this.cantidad,
-        PRECIO: this.productoAagregar.PRECIO
+        PRECIO: this.productoAagregar.PRECIO,
+        PROVEEDOR:this.productoAagregar.PROVEEDOR
       })
       this.cantidad = ''
       this.productoAagregar = ''

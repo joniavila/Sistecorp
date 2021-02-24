@@ -274,8 +274,8 @@ export default {
           url:'/presupuestos'
         },
         {
-          label:'Historial de Presupuestos',
-          url:'/historial'
+          label:'Historial de Facturas',
+          url:'/historialFacturacion'
         },
         {
           label:'Compras a Proveedor',

@@ -76,6 +76,11 @@ const router = new Router({
       name: 'facturacion',
       component: ()=> import('./views/Administracion/Facturacion.vue')
     },
+    {
+      path: '/historialFacturacion',
+      name: 'historialFacturacion',
+      component: ()=> import('./views/Administracion/HistorialFacturacion.vue')
+    },
     // NEGOCIO
     {
       path: '/dashboard',

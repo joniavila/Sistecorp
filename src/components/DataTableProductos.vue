@@ -128,7 +128,6 @@ export default {
                 {
                     text:'NOMBRE',
                     align: 'left',
-                    sortable: false,
                     value: 'NOMBRE'
                 },
                 {

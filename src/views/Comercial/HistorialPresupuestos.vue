@@ -21,6 +21,7 @@
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon @click="verPedido(item)">mdi-eye</v-icon>
       <v-icon @click="enviarCotizacion()">mdi-email-send-outline</v-icon>
+      <v-icon @click="confirmarCotizacion(item)">mdi-truck-check</v-icon>
     </template>
     </v-data-table>
     </v-card>
@@ -34,9 +35,39 @@
         <CardPedido :pedido="cotizacionAver" />
         <v-btn @click="dialog=false" color="success"> ACEPTAR</v-btn>
     </v-dialog>
+     <!-- ALERT PARA ENVIO DE COTI POR MAIL -->
      <v-snackbar v-model="snackbar" :timeout="2000" centered top :color="colorSnackBar">
         {{mensaje}}
     </v-snackbar>
+
+    <!-- DIALOG PARA CONFIRMACION DE PRESUPUESTO -->
+    <v-dialog
+    v-model="dialogConfirmacion"
+      persistent
+      max-width="500"
+      dark>
+      <v-card >
+        <v-card-title style="font-size:1.3vw">Esta seguro que desea CONFIRMAR este presupuesto?</v-card-title>
+        <v-card-text>
+              <v-container >
+                <v-textarea
+                    solo
+                    name="input-7-4"
+                    label="OBSERVACIONES"
+                    v-model="observaciones"
+                ></v-textarea>
+              </v-container>
+        </v-card-text>
+        <v-card-actions style="margin-left:30%">
+            <v-btn color="success" @click="confirmarPedido">
+                ACEPTAR
+            </v-btn>
+            <v-btn color="error" @click="cancelarConfirmacion">
+                CANCELAR
+            </v-btn>
+        </v-card-actions>
+    </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -80,14 +111,17 @@ data(){
                 text:'CLIENTE',
                 value:'datosPedido.razonSocial'
             },
-            { text: '', value: 'actions', sortable: false },
+            { text: 'ACCIONES', value: 'actions', sortable: false },
         ],
         search: '',
         snackbar: false,
         colorSnackBar: '',
         mensaje:'',
         cotizacionAver:{},
-        dialog: false
+        dialog: false,
+        dialogConfirmacion: false,
+        observaciones: '',
+        presupuestoAconfirmar: {}
     }
 },
 components:{
@@ -110,6 +144,43 @@ methods:{
         this.mensaje = 'COTIZACION ENVIADA CON EXITO'
         this.colorSnackBar = 'success'
         this.snackbar = true
+    },
+    confirmarCotizacion(item){
+        this.dialogConfirmacion = true
+        this.presupuestoAconfirmar = item
+    },
+    cancelarConfirmacion(){
+        this.dialogConfirmacion = false
+        this.presupuestoAconfirmar = {}
+    },
+    confirmarPedido(){
+        this.dialogConfirmacion = false
+        if(this.presupuestoAconfirmar){
+        var pedidoConfirmado = {
+            datosPedido: this.presupuestoAconfirmar.datosPedido,
+            productos: this.presupuestoAconfirmar.productosCotizados,
+            monto: this.presupuestoAconfirmar.monto,
+            estado: 'ACEPTADO',
+            solicitud:'COTIZACION'
+        }
+        axios.put(BaseURL+`/${this.presupuestoAconfirmar.id}`,pedidoConfirmado).then(res => {
+            if(res.status === 200){
+                this.mensaje = "PRESUPUESTO CONFIRMADO CON EXITO, SE ENCUENTRA DISPONIBLE PARA FACTURA"
+                this.colorSnackBar = 'success'
+                this.snackbar = true
+            }else{
+                this.mensaje = 'HUBO UN ERROR AL CONFIRMAR EL PRESUPUESTO, INTENTE NUEVAMETE'
+                this.colorSnackBar = 'error'
+                this.snackbar = true
+            }
+        }).then( ()=> {
+            axios.get(BaseURL+'?q=COTIZADO').then(res => {
+                if(res.status === 200){
+                    this.cotizaciones = res.data
+                }
+            })
+        })
+        }
     }
 }
 }
