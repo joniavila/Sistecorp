@@ -63,7 +63,7 @@
       "cuit": "319684963",
       "razonSocial": "",
       "mail": "ventas@sistecorp.com",
-      "contraseña": "ventas",
+      "contraseña": "sistecorp2020",
       "administrador": false,
       "vendedor": true,
       "superAdministrador": false,
@@ -3699,7 +3699,7 @@
   ],
   "pedidos": [
     {
-      "id": 2,
+      "estado": "COTIZADO",
       "datosPedido": {
         "fecha": "2021-01-18",
         "usuarioRegistrado": "presupuestos@cono.com",
@@ -3725,9 +3725,27 @@
           "CANTIDAD": "3"
         }
       ],
-      "monto": "SIN COTIZAR",
-      "estado": "PENDIENTE",
-      "solicitud": "COTIZACION"
+      "productosCotizados": [
+        {
+          "id": 74,
+          "NOMBRE": "CARGADOR NOTEBOOK - UNIVERSAL 220V - 120W - 1684 - CH003 - 2604",
+          "CATEGORIA": "ENERGIA",
+          "CANTIDADDISPONIBLE": 99,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 166,
+          "NOMBRE": "FUENTE SWITCHING 12V 1AH GENERICA",
+          "CATEGORIA": "ENERGIA",
+          "CANTIDADDISPONIBLE": 55,
+          "CANTIDADSOLICITADA": "3",
+          "PRECIO": "50"
+        }
+      ],
+      "monto": 350,
+      "solicitud": "COTIZACION",
+      "id": 2
     },
     {
       "datosPedido": {
@@ -3861,7 +3879,7 @@
       "observaciones": "SE NECESITA CON URGENCIA COTIZACION"
     },
     {
-      "id": 7,
+      "estado": "COTIZADO",
       "datosPedido": {
         "fecha": "2021-02-18",
         "usuarioRegistrado": "compras@valeo.com",
@@ -3887,10 +3905,27 @@
           "CANTIDAD": "2"
         }
       ],
-      "monto": "SIN COTIZAR",
-      "estado": "PENDIENTE",
+      "productosCotizados": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 54,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 285,
+          "CANTIDADSOLICITADA": "1",
+          "PRECIO": "651"
+        }
+      ],
+      "monto": 851,
       "solicitud": "COTIZACION",
-      "observaciones": ""
+      "id": 7
     }
   ],
   "facturas": [

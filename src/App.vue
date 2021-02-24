@@ -69,7 +69,24 @@
             Comercial
           </v-btn>
         </template>
-            <v-list>
+        <v-list>
+        <!-- MODULO COMERCIAL PARA VENDEDORES -->
+        <div v-if="vendedorApp">
+              <v-list-item
+                v-for="(vended,i) in moduloComercialVendedor"
+                :key="i"
+              >
+              <v-list-item-title >
+                <v-btn
+                :to="vended.url"
+                text
+                rounded>
+                {{ vended.label }}
+                </v-btn>
+                </v-list-item-title>
+              </v-list-item>
+        </div>
+        <div v-else>
               <v-list-item
                 v-for="(user,i) in moduloComercial"
                 :key="i"
@@ -83,7 +100,8 @@
                 </v-btn>
                 </v-list-item-title>
               </v-list-item>
-            </v-list>     
+        </div>
+        </v-list>     
       </v-menu>
       <!-- MODULO DE NEGOCIO -->
       <v-menu v-if="administradorApp || superAdministradorApp" open-on-hover app dark offset-y>
@@ -218,6 +236,20 @@ export default {
           url:'promociones'
         }
       ],
+      moduloComercialVendedor:[
+         {
+          label:'Crear pedido Web',
+          url:'/pedidoWeb'
+        },
+        {
+          label:'cotizaciones Pendientes',
+          url:'/presupuestos',
+        },
+        {
+          label:'Historial cotizaciones',
+          url:'/historialCotizaciones',
+        },
+      ],
       moduloComercial:[
         {
           label:'Crear pedido Web',
@@ -251,10 +283,6 @@ export default {
         },
       ],
       moduloInventario:[
-        {
-          label: 'MarkUp',
-          url:'/markup'
-        },
         {
           label: 'Productos',
           url:'/productos'

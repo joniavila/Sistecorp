@@ -55,6 +55,21 @@ const router = new Router({
       name: 'confirmacionPedido',
       component: ()=> import('./views/Comercial/Pedido.vue')
     },
+    {
+      path: '/presupuestos',
+      name: 'presupuestos',
+      component: ()=> import('./views/Comercial/Presupuestos.vue')
+    },
+    {
+      path: '/cotizador',
+      name: 'cotizador',
+      component: ()=> import('./views/Comercial/CotizadorPedido.vue')
+    },
+    {
+      path: '/historialCotizaciones',
+      name: 'historialCotizaciones',
+      component: ()=> import('./views/Comercial/HistorialPresupuestos.vue')
+    },
     // ADMINISTRACION
     {
       path: '/facturacion',

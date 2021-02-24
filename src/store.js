@@ -56,8 +56,12 @@ export default new Vuex.Store({
     productosPedido:[],
     banner: true,
     esPedido: false,
-    productosPreferencia:[]
-  },
+    productosPreferencia:[],
+    pedidoAcotizar:'',
+    productosCotizacion:[],
+    dialogCotizacion:false,
+    montoCotizacion:0
+  },  
   mutations: {
   },
   actions: {

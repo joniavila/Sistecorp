@@ -66,6 +66,8 @@ methods:{
     deleteItem(item){
         var indexItem = this.productosAgregados.indexOf(item)
         this.productosAgregados.splice(indexItem,1)
+        var indexItem2 = this.$store.state.productosPedido.indexOf(item)
+        this.productosPedido.splice(indexItem2,1)
     }
 }
 }
