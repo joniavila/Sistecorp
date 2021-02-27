@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import TablaSeleccionProductosCotizacion from '../../components/TablaSeleccionProductosCotizacion'
+import TablaSeleccionProductosCotizacion from '../../../components/TablaSeleccionProductosCotizacion'
 import {mapState} from 'vuex'
 import axios from 'axios'
 const BaseURL = 'http://localhost:3000/pedidos'

@@ -17,7 +17,7 @@
             </v-list-item>
         <v-card-title style="color:#6aaaff">PRODUCTOS </v-card-title>
             <template>
-                <span>PRODUCTOS SOLICITADOS</span> 
+                <span style="color:#6aaaff">PRODUCTOS SOLICITADOS</span> 
                 <v-simple-table dense>
                     <template v-slot:default>
                     <thead>
@@ -47,8 +47,8 @@
                 </v-simple-table>
             </template>
             <div style="margin:20px"></div>
-            <template v-if="pedido.estado=== 'COTIZADO' ">
-                <span>PRODUCTOS COTIZADOS</span> 
+            <template v-if="((pedido.estado=== 'COTIZADO') || (pedido.estado === 'FACTURADO')) && (pedido.solicitud === 'COTIZACION')  ">
+                <span style="color:#6aaaff">PRODUCTOS COTIZADOS</span> 
                 <v-simple-table dense>
                     <template v-slot:default>
                     <thead>
@@ -70,14 +70,15 @@
                         :key="item.id"
                         >
                         <td>{{ item.NOMBRE }}</td>
-                        <td>{{ item.CANTIDAD }}</td>
+                        <td>{{ item.CANTIDADSOLICITADA }}</td>
                         <td>{{ item.PRECIO }}</td>
                         </tr>
                     </tbody>
                     </template>
                 </v-simple-table>
             </template>
-            <v-card-title v-if="pedido.monto =! 'SIN COTIZAR' ">MONTO COTIZADO: ${{pedido.monto}} </v-card-title>
+            <v-card-title v-if="(pedido.estado === 'COTIZADO') && (pedido.monto != '')">MONTO COTIZADO: ${{pedido.monto}} </v-card-title>
+            <v-card-title v-if="pedido.estado === 'FACTURADO'">MONTO FACTURA: ${{pedido.monto}} </v-card-title>
         </v-card-text>
         <v-card-actions>
         </v-card-actions>

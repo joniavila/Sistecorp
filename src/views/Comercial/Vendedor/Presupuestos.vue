@@ -35,7 +35,7 @@
 <script>
 import axios from 'axios'
 const BaseURL = 'http://localhost:3000/pedidos'
-import CardPedido from '../../components/CardPedido'
+import CardPedido from '../../../components/CardPedido'
 
 export default {
 data(){

@@ -58,17 +58,17 @@ const router = new Router({
     {
       path: '/presupuestos',
       name: 'presupuestos',
-      component: ()=> import('./views/Comercial/Presupuestos.vue')
+      component: ()=> import('./views/Comercial/Vendedor/Presupuestos.vue')
     },
     {
       path: '/cotizador',
       name: 'cotizador',
-      component: ()=> import('./views/Comercial/CotizadorPedido.vue')
+      component: ()=> import('./views/Comercial/Vendedor/CotizadorPedido.vue')
     },
     {
       path: '/historialCotizaciones',
       name: 'historialCotizaciones',
-      component: ()=> import('./views/Comercial/HistorialPresupuestos.vue')
+      component: ()=> import('./views/Comercial/Vendedor/HistorialPresupuestos.vue')
     },
     // ADMINISTRACION
     {

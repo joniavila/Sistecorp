@@ -270,10 +270,6 @@ export default {
           url:'/facturacion'
         },
         {
-          label:'Presupuestos',
-          url:'/presupuestos'
-        },
-        {
           label:'Historial de Facturas',
           url:'/historialFacturacion'
         },

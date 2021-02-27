@@ -15,68 +15,44 @@
       <v-icon @click="verPedido(item)">mdi-eye</v-icon>
     </template>
     </v-data-table>
-    <v-alert :color="colorSnackBar" v-model="snackbar" centered dismissible>{{mensaje}}</v-alert>
-    <!-- DIALOG PARA VER EL PEDIDO SIN COTIZAR -->
+    <v-snackbar v-model="snackbar" :timeout="2000" centered top :color="colorSnackBar">
+        {{mensaje}}
+    </v-snackbar>
+   <!-- DIALOG PARA VER EL PEDIDO/COTIZACION -->
     <v-dialog
     v-model="dialog"
       persistent
       max-width="500"
       dark>
-    
-        <v-card v-if="pedidoAver">
+        <CardPedido :pedido="pedidoAver" />
+        <v-btn @click="dialog=false" color="error"> CERRAR</v-btn>
+        <v-btn v-if="pedidoAver.estado === 'COTIZADO'" @click="confirmarPresupuesto" color="success"> ACEPTAR PRESUPUESTO</v-btn>
+    </v-dialog>
+
+    <!-- DIALOG PARA CONFIRMAR PRESUPUESTO -->
+    <v-dialog
+    v-model="dialogConfirmacion"
+      persistent
+      max-width="500"
+      dark>
+      <v-card>
         <v-card-title class="headline">
-            {{pedidoAver.solicitud}} NRO {{ pedidoAver.id}}
+          Esta seguro que sea confirmar el presupuesto?
         </v-card-title>
-        <v-card-text class="primary ">
-        <v-card-title>DATOS CLIENTE</v-card-title>
-            <v-list-item>
-                <v-list-item-content>
-                    <v-list-item-title>Mail Cliente: {{pedidoAver.datosPedido.usuarioRegistrado}}</v-list-item-title>
-                    <v-list-item-title>Razon Social: {{pedidoAver.datosPedido.razonSocial}}</v-list-item-title>
-                    <v-list-item-title>CUIT: {{pedidoAver.datosPedido.cuit}}</v-list-item-title>
-                    <v-list-item-title>Forma de Pago: {{pedidoAver.datosPedido.formaPago}}</v-list-item-title>
-                    <v-list-item-title>Forma de Entrega: {{pedidoAver.datosPedido.formaEntrega}}</v-list-item-title>
-                    <v-list-item-title>Fecha Estimada de Entrega: {{pedidoAver.datosPedido.fechaEntrega}}</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-        <v-card-title>PRODUCTOS</v-card-title>
-            <template>
-                <v-simple-table dense>
-                    <template v-slot:default>
-                    <thead>
-                        <tr>
-                        <th class="text-left">
-                            PRODUCTO
-                        </th>
-                        <th class="text-left">
-                            CANTIDAD
-                        </th>
-                        <th class="text-left">
-                            PRECIO + IVA
-                        </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                        v-for="item in pedidoAver.productos"
-                        :key="item.id"
-                        >
-                        <td>{{ item.NOMBRE }}</td>
-                        <td>{{ item.CANTIDAD }}</td>
-                        <td>{{ item.PRECIO }}</td>
-                        </tr>
-                    </tbody>
-                    </template>
-                </v-simple-table>
-            </template>
-            <v-card-title style="color:black" v-if="pedidoAver.estado === 'PENDIENTE'">PEDIDO DE COTIZACION PENDIENTE</v-card-title>   
-            <v-card-title v-if="pedidoAver.estado === 'ACEPTADO'">MONTO A FACTURAR: $ {{montoFactura}}</v-card-title>   
-        </v-card-text>
+        <v-card-text>La confirmacion del presupuesto conlleva la reserva de los productos y su posterior facturacion.</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="green darken-1"
-            @click="hideDialog()"
+            color="error"
+            text
+            @click="dialogConfirmacion = false"
+          >
+            Cancelar
+          </v-btn>
+          <v-btn
+            color="success"
+            text
+            @click="confirmarPresupuesto"
           >
             Aceptar
           </v-btn>
@@ -90,6 +66,7 @@
 import axios from 'axios'
 const BaseURL = 'http://localhost:3000/pedidos'
 import {mapState} from 'vuex'
+import CardPedido from '../../components/CardPedido'
 
 export default {
     data(){
@@ -136,8 +113,12 @@ export default {
         dialog:false,
         pedidoAver:'',
         montoFactura: 0,
-        usuarioRegistrado:{}
+        usuarioRegistrado:{},
+        dialogConfirmacion: false
     }
+},
+components:{
+    CardPedido
 },
 computed:{
     ...mapState(['user'])
@@ -182,15 +163,40 @@ methods:{
     verPedido(item){
         this.dialog = true,
         this.pedidoAver = item
-        if(this.pedidoAver.monto){
-            this.montoFactura = this.pedidoAver.monto*1.21
-        }
     },
     hideDialog(){
         this.dialog = false
         this.pedidoAver = ''
         this.montoFactura = 0
-    }
+    },
+    async confirmarPresupuesto(){
+
+        var pedidoConfirmado = {
+            datosPedido: this.pedidoAver.datosPedido,
+            productos: this.pedidoAver.productosCotizados,
+            monto: this.pedidoAver.monto,
+            estado: 'ACEPTADO',
+            solicitud:'COTIZACION'
+        }
+            await axios.put(BaseURL+`/${this.pedidoAver.id}`,pedidoConfirmado).then(res =>{
+                if(res.status === 201 || res.status === 200){
+                    this.mensaje = "SE HA CONFIRMADO CON EXITO"
+                    this.colorSnackBar = 'success'
+                    this.snackbar = true
+                    this.dialog = false
+                }else{
+                    this.dialog = false
+                    this.mensaje = "SE PRODUJO UN ERROR EN EL PROCESO DE CONFIRMACION, INTENTE NUEVAMENTE"
+                    this.colorSnackBar = 'error'
+                    this.snackbar = true
+                }
+            }).then( async()=>{
+                // ACTUALIZA LA LISTA DE PEDIDOS
+                axios.get(BaseURL+`?q=${this.cuitCliente}`).then(res => {
+                    this.pedidos = res.data
+                })
+            })
+    },
 }
 }
 </script>

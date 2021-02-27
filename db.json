@@ -203,17 +203,15 @@
       "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
       "CATEGORIA": "MICRO",
       "PRECIO": "100",
-      "CANTIDAD": 54,
-      "id": 61,
-      "PROVEEDOR": "AIR"
+      "CANTIDAD": 50,
+      "id": 61
     },
     {
       "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
       "CATEGORIA": "MICRO",
       "PRECIO": "651",
-      "CANTIDAD": 285,
-      "id": 72,
-      "PROVEEDOR": "AIR"
+      "CANTIDAD": 282,
+      "id": 72
     },
     {
       "NOMBRE": "CARGADOR NOTEBOOK - UNIVERSAL 220V - 120W - 1684 - CH003 - 2604",
@@ -3869,7 +3867,6 @@
       "observaciones": "SE NECESITA CON URGENCIA COTIZACION"
     },
     {
-      "estado": "COTIZADO",
       "datosPedido": {
         "fecha": "2021-02-18",
         "usuarioRegistrado": "compras@valeo.com",
@@ -3913,7 +3910,8 @@
           "PRECIO": "651"
         }
       ],
-      "monto": 851,
+      "monto": "851.00",
+      "estado": "FACTURADO",
       "solicitud": "COTIZACION",
       "id": 7
     },
@@ -4085,6 +4083,55 @@
       "estado": "FACTURADO",
       "solicitud": "PEDIDO",
       "id": 11
+    },
+    {
+      "datosPedido": {
+        "fecha": "2021-02-26",
+        "usuarioRegistrado": "compras@valeo.com",
+        "fechaEntrega": "2021-02-28",
+        "nombreContacto": "compras",
+        "mailContacto": "compras@valeo.com",
+        "cuit": "309869642",
+        "razonSocial": "Cibie Argentina S.A",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "DISCO DURO X",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "2"
+        },
+        {
+          "id": 1,
+          "NOMBRE": "MICROPROCESADOR X",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "2"
+        }
+      ],
+      "productosCotizados": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 52,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 284,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "651"
+        }
+      ],
+      "monto": 1502,
+      "estado": "FACTURADO",
+      "solicitud": "COTIZACION",
+      "id": 12
     }
   ],
   "facturas": [
@@ -4148,7 +4195,7 @@
       "monto": 12.1,
       "productos": [
         {
-          "id": 3519.00,
+          "id": 3519,
           "NOMBRE": "PRODUCTO DE LIMPIEZA PARA PANTALLAS  FOX-TEX 200ML",
           "CATEGORIA": "OTROS",
           "CANTIDADDISPONIBLE": "100",
@@ -4177,7 +4224,7 @@
         "nombreContacto": "compras"
       },
       "formaDePago": "Contado Efectivo",
-      "monto": 423.50,
+      "monto": 423.5,
       "productos": [
         {
           "id": 74,
@@ -4440,7 +4487,7 @@
         "nombreContacto": "Jonas Avila"
       },
       "formaDePago": "Tarjeta",
-      "monto": 1795.64,
+      "monto": 1795,
       "productos": [
         {
           "id": 148,
@@ -4490,6 +4537,66 @@
         }
       },
       "id": 8
+    },
+    {
+      "datosCliente": {
+        "cliente": "Cibie Argentina S.A",
+        "MailCliente": "compras@valeo.com",
+        "CUIT": "309869642",
+        "nombreContacto": "compras"
+      },
+      "formaDePago": "Tarjeta",
+      "monto": "NaN",
+      "productos": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 54,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 285,
+          "CANTIDADSOLICITADA": "1",
+          "PRECIO": "651"
+        }
+      ],
+      "usuarioFacturante": null,
+      "id": 9
+    },
+    {
+      "datosCliente": {
+        "cliente": "Cibie Argentina S.A",
+        "MailCliente": "compras@valeo.com",
+        "CUIT": "309869642",
+        "nombreContacto": "compras"
+      },
+      "formaDePago": "Tarjeta",
+      "monto": null,
+      "productos": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 52,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "100"
+        },
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 284,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "651"
+        }
+      ],
+      "usuarioFacturante": null,
+      "id": 10
     }
   ],
   "compras": [

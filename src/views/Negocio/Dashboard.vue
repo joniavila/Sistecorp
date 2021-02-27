@@ -22,34 +22,31 @@
 
     <v-row>
       <v-col cols="12" md="8">
-        <EmployeesTable :usuarios="usuarios" @select-employee="setEmployee" />
+        
       </v-col>
     </v-row>
 
-    <v-row id="below-the-fold" v-intersect="showMoreContent">
+    <v-row>
       <v-col cols="12" md="8">
-      </v-col>
 
+      </v-col>
     </v-row>
-    <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.lgAndUp">
-      You have selected {{ selectedEmployee.name }},
-      {{ selectedEmployee.title }}
-      <v-btn color="pink" text @click="snackbar = false">
-        Close
-      </v-btn>
-    </v-snackbar>
-    <v-divider></v-divider>
-    <h2>PRODUCTOS FALTANTES (10 unidades o menos)</h2>
-    <div>
-      <v-data-table :headers="headers" :items="productos" class="elevation-1"
+
+    <div style="display:flex">
+      <v-data-table :headers="headers" :items="productos"
       :footer-props="{'items-per-page-text':'Productos por pagina'}"
       no-data-text = 'NO HA CARGADO NINGUN PRODUCTO'
-      sort-by="CANTIDAD">
+      sort-by="CANTIDAD" :items-per-page="5"
+      dense>
+      <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>PRODUCTOS</v-toolbar-title>
+          <v-toolbar-title>PRODUCTOS FALTANTES (10 unidades o menos)</v-toolbar-title>
         </v-toolbar>
+      </template>
         </v-data-table>
-        </div>
+        <div style="margin:10px"></div>
+      <EmployeesTable  :usuarios="usuarios" @select-employee="setEmployee" />
+    </div>
       </v-container>
 </template>
 
@@ -62,7 +59,6 @@ import StatisticCard from '../../components/StatisticCard'
 import employeesData from '../../data/employees.json'
 import timelineData from '../../data/timeline.json'
 import salesData from '../../data/sales.json'
-import statisticsData from '../../data/statistics.json'
 import axios from 'axios'
 const BaseUrlUsuarios = 'http://localhost:3000/usuarios '
 const BaseUrlProducto = 'http://localhost:3000/productos'
@@ -85,7 +81,40 @@ export default {
         title: ''
       },
       snackbar: false,
-      statistics: statisticsData,
+      statistics: [
+        {
+          "title": "Presupuestos del Mes",
+          "value": "65"
+        },
+        {
+          "title": "Monto Facturado",
+          "value": "$983.000"
+        },
+        {
+          "title": "Promedio Markup",
+          "value": "30%"
+        },
+        {
+          "title": "Ganancias Estimadas (Mes en Curso)",
+          "value": "$294.900"
+        },
+        {
+          "title": "Presupuestos Pendientes (Mes en Curso)",
+          "value": "5"
+        },
+        {
+          "title": "Presupuestos Enviados (Mes en Curso)",
+          "value": "10"
+        },
+        {
+          "title": "Pedidos Web",
+          "value": "20"
+        },
+        {
+          "title": "Monto de Compras a Proveedores",
+          "value": "$50000"
+        }
+      ],
       timeline: timelineData,
       usuarios: [],
       productos: [],

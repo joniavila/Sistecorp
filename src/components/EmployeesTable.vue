@@ -3,9 +3,14 @@
     :headers="headers"
     :items="usuarios"
     :items-per-page="5"
-    class="elevation-1"
     :multi-sort="true"
+    dense
   >
+  <template v-slot:top>
+   <v-toolbar flat>
+      <v-toolbar-title>USUARIOS REGISTRADOS</v-toolbar-title>
+    </v-toolbar>
+  </template>
   <template v-slot:[`item.administrador`]="{ item }">
         <v-simple-checkbox
           v-model="item.administrador"
@@ -32,7 +37,7 @@ export default {
   },
   data: () => ({
     headers: [
-      { text: 'ID Empleado', value: 'id' },
+      { text: 'ID', value: 'id' },
       { text: 'Nombre', value: 'name' },
       { text: 'Mail', value: 'mail' },
       { text: 'Administrador', value: 'administrador' },

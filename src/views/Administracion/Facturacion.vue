@@ -15,7 +15,9 @@
       </v-icon>
     </template>
     </v-data-table>
-    <v-alert :color="colorSnackBar" v-model="snackbar" timeout="2000" centered dismissible>{{mensaje}}</v-alert>
+    <v-snackbar v-model="snackbar" :timeout="2000" centered top :color="colorSnackBar">
+        {{mensaje}}
+    </v-snackbar>
     <!-- DIALOG PARA CONFIRMAR LA FACTURACION -->
     <v-dialog
       v-model="dialog"

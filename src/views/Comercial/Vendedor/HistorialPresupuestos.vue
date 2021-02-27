@@ -21,7 +21,7 @@
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon @click="verPedido(item)">mdi-eye</v-icon>
       <v-icon @click="enviarCotizacion()">mdi-email-send-outline</v-icon>
-      <v-icon @click="confirmarCotizacion(item)">mdi-truck-check</v-icon>
+      <!-- <v-icon @click="confirmarCotizacion(item)">mdi-truck-check</v-icon> -->
     </template>
     </v-data-table>
     </v-card>
@@ -74,7 +74,7 @@
 <script>
 import axios from 'axios'
 const BaseURL = 'http://localhost:3000/pedidos'
-import CardPedido from '../../components/CardPedido'
+import CardPedido from '../../../components/CardPedido'
 
 export default {
 data(){
@@ -133,7 +133,6 @@ mounted(){
             this.cotizaciones = res.data
         }
     })
-
 },
 methods:{
     verPedido(item){
@@ -160,12 +159,12 @@ methods:{
             datosPedido: this.presupuestoAconfirmar.datosPedido,
             productos: this.presupuestoAconfirmar.productosCotizados,
             monto: this.presupuestoAconfirmar.monto,
-            estado: 'ACEPTADO',
+            estado: 'COTIZADO',
             solicitud:'COTIZACION'
         }
         axios.put(BaseURL+`/${this.presupuestoAconfirmar.id}`,pedidoConfirmado).then(res => {
             if(res.status === 200){
-                this.mensaje = "PRESUPUESTO CONFIRMADO CON EXITO, SE ENCUENTRA DISPONIBLE PARA FACTURA"
+                this.mensaje = "PRESUPUESTO REALIZADO CON EXITO"
                 this.colorSnackBar = 'success'
                 this.snackbar = true
             }else{
