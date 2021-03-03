@@ -9,11 +9,10 @@
       "contraseña": "jonas123",
       "administrador": true,
       "vendedor": true,
-      "superAdministrador": true,
       "preferencias": {
         "formaPago": "Tarjeta",
         "formaEntrega": "Retiro por oficina comercial",
-        "notificaciones": true,
+        "notificaciones": false,
         "promociones": true,
         "necesidades": false,
         "productosNecesidades": []
@@ -203,7 +202,7 @@
       "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
       "CATEGORIA": "MICRO",
       "PRECIO": "100",
-      "CANTIDAD": 50,
+      "CANTIDAD": 49,
       "id": 61
     },
     {
@@ -346,7 +345,7 @@
       "CATEGORIA": "MICRO",
       "PRECIO": "500",
       "PROVEEDOR": "AIR",
-      "CANTIDAD": 158,
+      "CANTIDAD": 156,
       "id": 131
     },
     {
@@ -4132,6 +4131,104 @@
       "estado": "FACTURADO",
       "solicitud": "COTIZACION",
       "id": 12
+    },
+    {
+      "datosPedido": {
+        "fecha": "2021-02-27",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-03-04",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "cuit": "37094451",
+        "razonSocial": "Jonas Avila",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 61,
+          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 50,
+          "CANTIDADSOLICITADA": "1",
+          "PRECIO": "100"
+        },
+        {
+          "id": 131,
+          "NOMBRE": "CABLE VGA 15M/15M 1.8 MTS MANHATTAN",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 158,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "500",
+          "PROVEEDOR": "AIR"
+        }
+      ],
+      "monto": "1100.00",
+      "estado": "FACTURADO",
+      "solicitud": "PEDIDO",
+      "id": 13
+    },
+    {
+      "datosPedido": {
+        "fecha": "2021-02-28",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-03-01",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "cuit": "37094451",
+        "razonSocial": "Jonas Avila",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 72,
+          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 282,
+          "CANTIDADSOLICITADA": "2",
+          "PRECIO": "651"
+        },
+        {
+          "id": 130,
+          "NOMBRE": "CABLE USB - RJ45",
+          "CATEGORIA": "MICRO",
+          "CANTIDADDISPONIBLE": 199,
+          "CANTIDADSOLICITADA": "1",
+          "PRECIO": "289",
+          "PROVEEDOR": "AIR"
+        }
+      ],
+      "monto": 1591,
+      "estado": "ACEPTADO",
+      "solicitud": "PEDIDO",
+      "id": 14
+    },
+    {
+      "id": 15,
+      "datosPedido": {
+        "fecha": "2021-02-28",
+        "usuarioRegistrado": "jonasavila@gmail.com",
+        "fechaEntrega": "2021-03-01",
+        "nombreContacto": "Jonas Avila",
+        "mailContacto": "jonasavila@gmail.com",
+        "cuit": "37094451",
+        "razonSocial": "Jonas Avila",
+        "formaPago": "Tarjeta",
+        "formaEntrega": "Retiro por oficina comercial"
+      },
+      "productos": [
+        {
+          "id": 0,
+          "NOMBRE": "nuevo producto",
+          "CATEGORIA": "MICRO",
+          "CANTIDAD": "1"
+        }
+      ],
+      "monto": "SIN COTIZAR",
+      "estado": "PENDIENTE",
+      "solicitud": "COTIZACION",
+      "observaciones": ""
     }
   ],
   "facturas": [
@@ -4567,36 +4664,6 @@
       ],
       "usuarioFacturante": null,
       "id": 9
-    },
-    {
-      "datosCliente": {
-        "cliente": "Cibie Argentina S.A",
-        "MailCliente": "compras@valeo.com",
-        "CUIT": "309869642",
-        "nombreContacto": "compras"
-      },
-      "formaDePago": "Tarjeta",
-      "monto": null,
-      "productos": [
-        {
-          "id": 61,
-          "NOMBRE": "DISCO DURO EXTERNO WD ELEMENTS 1TB USB 3.0 NEGRO",
-          "CATEGORIA": "MICRO",
-          "CANTIDADDISPONIBLE": 52,
-          "CANTIDADSOLICITADA": "2",
-          "PRECIO": "100"
-        },
-        {
-          "id": 72,
-          "NOMBRE": "PROCESADOR INTEL PENT G4400 D.CORE SKYLAKE S1151 BOX",
-          "CATEGORIA": "MICRO",
-          "CANTIDADDISPONIBLE": 284,
-          "CANTIDADSOLICITADA": "2",
-          "PRECIO": "651"
-        }
-      ],
-      "usuarioFacturante": null,
-      "id": 10
     }
   ],
   "compras": [

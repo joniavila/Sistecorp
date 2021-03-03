@@ -20,7 +20,7 @@
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon @click="verPedido(item)">mdi-eye</v-icon>
-      <v-icon @click="enviarCotizacion()">mdi-email-send-outline</v-icon>
+      <v-icon v-if="item.estado === 'COTIZADO'" @click="enviarCotizacion()">mdi-email-send-outline</v-icon>
       <!-- <v-icon @click="confirmarCotizacion(item)">mdi-truck-check</v-icon> -->
     </template>
     </v-data-table>
@@ -111,6 +111,10 @@ data(){
                 text:'CLIENTE',
                 value:'datosPedido.razonSocial'
             },
+            {
+                text:'ESTADO',
+                value:'estado'
+            },
             { text: 'ACCIONES', value: 'actions', sortable: false },
         ],
         search: '',
@@ -128,7 +132,7 @@ components:{
     CardPedido
 },
 mounted(){
-    axios.get(BaseURL+'?q=COTIZADO').then(res => {
+    axios.get(BaseURL+'?q=COTIZACION').then(res => {
         if(res.status === 200){
             this.cotizaciones = res.data
         }

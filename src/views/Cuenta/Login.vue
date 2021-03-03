@@ -33,8 +33,13 @@
 		<v-card-actions>
 			<v-btn color="success" @click="register">Registrese</v-btn>
 			<v-spacer></v-spacer>
+			<v-btn color="primary" @click="recuperarContra" text x-small> Recuperar Contraseña</v-btn>
+			<v-spacer></v-spacer>
 			<v-btn color="info" @click="login">Ingrese</v-btn>
 		</v-card-actions>
+	<v-snackbar v-model="snackbar" :timeout="2000" centered :color="colorSnackBar">
+              {{mensaje}}
+	</v-snackbar>
 	</v-card>
 </template>
 
@@ -55,7 +60,10 @@ export default {
 			errorIngreso: false,
 			alert:false,
 			alert2: false,
-			alert3:false
+			alert3:false,
+			snackbar: false,
+			colorSnackBar: '',
+			mensaje: ''
 		}
 	},
 	async created(){
@@ -115,6 +123,17 @@ export default {
 		},
 		register(){
 			this.$router.push('/signup')
+		},
+		recuperarContra(){
+			if(this.usuario){
+				this.colorSnackBar = 'success'
+				this.mensaje = 'SE HA ENVIADO UN MAIL A SU CASILLA PARA LA RECUPERACION'
+				this.snackbar = true
+			}else{
+				this.colorSnackBar = 'error'
+				this.mensaje = 'DEBE INGRESAR SU USUARIO A RECUPERAR'
+				this.snackbar = true
+			}
 		}
 	},
 	computed:{

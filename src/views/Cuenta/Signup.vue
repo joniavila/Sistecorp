@@ -29,7 +29,7 @@
           ></v-text-field>
           <v-text-field
             v-model="razonSocial"
-            label="Nombre de Usuario o Razon Social"
+            label="Razon Social"
             :rules="nombreRules"
           ></v-text-field>
           <v-text-field

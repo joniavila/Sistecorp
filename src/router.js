@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import axios from 'axios'
+import store from './store.js'
 
 Vue.use(Router)
 
@@ -110,11 +112,50 @@ const router = new Router({
     const publicPages = ['/login', '/','/signup']
     const authRequired = !publicPages.includes(to.path)
     const loggedIn = localStorage.getItem('user')
-  
+    const baseURL = 'http://localhost:3000/usuarios'
+
+    if(loggedIn){
+      axios.get(baseURL+`?q=${loggedIn.replace(`"`,'').replace(`"`,'')}`).then(res => { 
+          store.state.user = res.data[0]
+          store.state.ingreso = true
+							if(res.data[0].superAdministrador === true){
+								store.state.superAdministrador = true
+							}else{
+								//empleado administrativo
+								if(res.data[0].administrador === true){
+									store.state.administrador = true
+								}
+								//empleado comercial
+								if(res.data[0].vendedor === true){
+									store.state.vendedor = true
+								}
+								// usuario final
+								if(res.data[0].vendedor === false && res.data[0].administrador === false){
+									store.state.usuarioRegistrado = true
+								}
+							} 
+        
+      })
+    }
+    
+    
     if (authRequired && !loggedIn) {
       return next('/login')
     }
-  
+    if(to.path === "/facturacion"){
+      if(loggedIn != '"administracion@sistecorp.com"'){
+        if(loggedIn != '"jonasavila@gmail.com"'){
+          return next('/')
+        }
+      }
+    }
+    if(to.path === "/cotizador"){
+      if(loggedIn != '"ventas@sistecorp.com"'){
+        if(loggedIn != '"jonasavila@gmail.com"'){
+          return next('/')
+        }
+      }
+    }
     next()
   })
 
